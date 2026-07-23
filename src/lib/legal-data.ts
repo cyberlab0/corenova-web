@@ -1,13 +1,13 @@
 export const legalPages = {
   privacy: {
     title: "Privacy Policy",
-    content: "This Privacy Policy describes how Corenova Technologies Ltd ('we', 'us', or 'our') collects, uses, and shares your personal information when you use our website and services. \n\n[Placeholder for Legal Review: Insert detailed data collection practices, third-party sharing, user rights, etc.]",
-    lastUpdated: "January 1, 2026",
+    content: `Effective Date: July 23, 2026\n\nCORENOVA TECHNOLOGY LTD (“Company”, “we”, “our”, or “us”) respects your privacy and is committed to protecting your personal information.\n\nWe may collect information such as your name, email address, phone number, company name, IP address, browser details, and any information you voluntarily provide through our website.\n\nWe use this information to:\n\n* Provide our services\n* Respond to inquiries\n* Improve our website\n* Communicate with clients\n* Enhance security\n* Comply with applicable laws\n\nWe do not sell personal information to third parties.\n\nWe implement industry-standard security measures to protect your information.\n\nBy using our website, you consent to this Privacy Policy.\n\nContact:\ncontact@corenovatechnology.com`,
+    lastUpdated: "July 23, 2026",
   },
   terms: {
     title: "Terms and Conditions",
-    content: "These Terms and Conditions govern your use of our website and services. By accessing our services, you agree to these terms in full.\n\n[Placeholder for Legal Review: Insert limitations of liability, governing law, dispute resolution, etc.]",
-    lastUpdated: "January 1, 2026",
+    content: `By accessing this website, you agree to comply with these Terms and Conditions.\n\nOur services include:\n\n* AI Automation\n* Cybersecurity Services\n* Software Development\n* Web Development\n* Technology Consulting\n* Cloud Solutions\n\nUsers agree not to:\n\n* Misuse our website\n* Attempt unauthorized access\n* Copy or reproduce our content without written permission\n* Engage in unlawful activities\n\nAll intellectual property on this website belongs to CORENOVA TECHNOLOGY LTD unless otherwise stated.\n\nThese terms are governed by applicable laws.`,
+    lastUpdated: "July 23, 2026",
   },
   cookies: {
     title: "Cookie Policy",
@@ -21,13 +21,13 @@ export const legalPages = {
   },
   disclaimer: {
     title: "Disclaimer",
-    content: "The information provided on this website is for general informational purposes only. We make no representations or warranties of any kind.\n\n[Placeholder for Legal Review: Insert professional disclaimers, no-guarantee clauses, etc.]",
-    lastUpdated: "January 1, 2026",
+    content: `The information on this website is provided for general informational purposes only.\n\nWhile we strive for accuracy, CORENOVA TECHNOLOGY LTD makes no guarantees regarding completeness, reliability, or accuracy.\n\nAny reliance on the information provided is at your own risk.\n\nWe are not responsible for losses arising from the use of our website or third-party links.`,
+    lastUpdated: "July 23, 2026",
   },
   accessibility: {
     title: "Accessibility Statement",
-    content: "Corenova Technologies Ltd is committed to making our website accessible to everyone, including individuals with disabilities. We continuously work to improve the accessibility of our web experience following WCAG guidelines.\n\n[Placeholder for Legal Review: Insert specific accessibility features, contact info for issues, etc.]",
-    lastUpdated: "January 1, 2026",
+    content: `CORENOVA TECHNOLOGY LTD is committed to making our website accessible to everyone.\n\nWe continuously improve accessibility by following recognized web accessibility best practices and welcome feedback from users experiencing accessibility barriers.\n\nFor assistance, contact:\n\ncontact@corenovatechnology.com`,
+    lastUpdated: "July 23, 2026",
   },
   copyright: {
     title: "Copyright Notice",
@@ -41,8 +41,8 @@ export const legalPages = {
   },
   ndpr: {
     title: "NDPR Notice",
-    content: "As a registered Nigerian company, Corenova Technologies Ltd complies with the Nigeria Data Protection Regulation (NDPR). This notice explains your rights and our obligations under NDPR.\n\n[Placeholder for Legal Review: Insert NITDA compliance, consent mechanisms, etc.]",
-    lastUpdated: "January 1, 2026",
+    content: `CORENOVA TECHNOLOGY LTD complies with the Nigeria Data Protection Act (NDPA) 2023 and, where applicable, the Nigeria Data Protection Regulation (NDPR) regarding the collection, storage, processing, and protection of personal data.\n\nPersonal data is processed lawfully, fairly, and transparently.\n\nUsers have the right to:\n\n* Access their personal information\n* Request correction\n* Request deletion where legally permissible\n* Withdraw consent where applicable\n* Lodge complaints with the appropriate data protection authority\n\nPrivacy inquiries:\n\ncontact@corenovatechnology.com`,
+    lastUpdated: "July 23, 2026",
   },
   "data-retention": {
     title: "Data Retention Policy",
