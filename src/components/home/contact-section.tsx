@@ -30,9 +30,9 @@ export function ContactSection() {
 
             <div className="space-y-8">
               {[
-                { icon: <Mail />, title: "Email Us", detail: "hello@corenova.com" },
-                { icon: <Phone />, title: "Call Us", detail: "+234 (0) 800 000 0000" },
-                { icon: <MessageCircle />, title: "WhatsApp", detail: "+234 (0) 800 000 0000" },
+                { icon: <Mail />, title: "Email Us", detail: "contact@corenovatechnology.com" },
+                { icon: <Phone />, title: "Call Us", detail: "+234 913 181 5101" },
+                { icon: <MessageCircle />, title: "WhatsApp", detail: "+234 913 181 5101" },
                 { icon: <MapPin />, title: "Visit Us", detail: "Corenova HQ, Lagos, Nigeria" },
               ].map((item, idx) => (
                 <motion.div 
