@@ -6,6 +6,12 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export function generateStaticParams() {
+  return Object.keys(legalPages).map((slug) => ({
+    slug: slug,
+  }));
+}
+
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const page = legalPages[params.slug as keyof typeof legalPages];
