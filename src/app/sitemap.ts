@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const coreRoutes = [
     "",
     "/about",
+    "/portfolio",
+    "/careers",
     "/brand",
     "/blog",
     "/legal/privacy",
@@ -23,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/legal/acceptable-use",
     "/legal/data-retention",
     "/legal/security",
+    "/legal/security-statement",
   ];
 
   const coreEntries = coreRoutes.map((route) => ({

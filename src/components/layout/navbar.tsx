@@ -34,18 +34,29 @@ export function Navbar() {
         </motion.div>
       </Link>
       
-      <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+      <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-muted-foreground">
         <Link href="/#services" className="hover:text-foreground transition-colors">Services</Link>
-        <Link href="/#about" className="hover:text-foreground transition-colors">About</Link>
-        <Link href="/about" className="hover:text-foreground transition-colors">Founder</Link>
+        <Link href="/portfolio" className="hover:text-foreground transition-colors">Portfolio</Link>
+        <Link href="/#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
+        <Link href="/about" className="hover:text-foreground transition-colors">About</Link>
         <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
+        <Link href="/careers" className="hover:text-foreground transition-colors">Careers</Link>
         <Link href="/#contact" className="hover:text-foreground transition-colors">Contact</Link>
       </nav>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
+        <a
+          href="https://wa.me/2349131815101"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20 text-xs font-medium hover:bg-green-500/20 transition-colors"
+          title="WhatsApp Support"
+        >
+          <span>WhatsApp</span>
+        </a>
         <CommandPalette />
         <MagneticButton className="hidden md:block" onClick={() => router.push('/#contact')}>
-          Start Your Project
+          Get Free Consultation
         </MagneticButton>
       </div>
     </motion.header>

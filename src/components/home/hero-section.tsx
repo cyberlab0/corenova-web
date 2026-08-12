@@ -20,38 +20,61 @@ export function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-widest backdrop-blur-sm"
         >
-          Intelligent Technology Agency
+          Corenova Technology Ltd
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold tracking-tight max-w-5xl leading-[1.1] mb-8"
+          className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold tracking-tight max-w-5xl leading-[1.15] mb-6"
         >
-          Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI Automation</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Enterprise Cybersecurity</span>
+          Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Secure Software</span>, AI Solutions & Digital Infrastructure That Scale Your Business.
         </motion.h1>
+
+        {/* Sub-Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="flex flex-wrap justify-center gap-2 mb-8"
+        >
+          {[
+            "Custom Software",
+            "AI Automation",
+            "Mobile Apps",
+            "Cybersecurity",
+            "Cloud Infrastructure",
+          ].map((pill, idx) => (
+            <span
+              key={idx}
+              className="px-3.5 py-1 rounded-full bg-card/80 border border-border/60 text-xs font-medium text-muted-foreground backdrop-blur-sm"
+            >
+              {pill}
+            </span>
+          ))}
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-12 leading-relaxed"
+          className="text-base md:text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed"
         >
-          We build autonomous AI workflows, harden zero-trust digital infrastructure, and engineer scalable web platforms for businesses from Lagos to the world.
+          We build autonomous AI workflows, zero-trust cybersecurity architectures, and scalable web platforms for enterprise organizations worldwide.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-6"
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
-          <MagneticButton className="px-8 py-4 text-lg" onClick={() => router.push('/#contact')}>
-            Start Your Project
+          <MagneticButton className="px-8 py-4 text-base" onClick={() => router.push('/#contact')}>
+            Get Free Consultation
           </MagneticButton>
-          <MagneticButton className="px-8 py-4 text-lg bg-transparent border border-border text-foreground hover:bg-secondary/10" onClick={() => router.push('/#contact')}>
-            Book Consultation
+          <MagneticButton className="px-8 py-4 text-base bg-transparent border border-border text-foreground hover:bg-secondary/10" onClick={() => router.push('/portfolio')}>
+            View Our Work
           </MagneticButton>
         </motion.div>
       </div>
