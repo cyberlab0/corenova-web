@@ -5,43 +5,46 @@ import { ArrowUpRight, Cpu, Shield, Globe } from "lucide-react";
 
 const caseStudies = [
   {
-    category: "AI & Automation",
-    icon: <Cpu className="text-primary" size={20} />,
-    title: "AI Document & Invoice Processing Pipeline",
-    clientType: "Logistics & Commercial Enterprise",
+    category: "AI Product & Systems",
+    icon: <Cpu className="text-cyan-400" size={20} />,
+    title: "Meet VELA: Ultimate AI Financial Powerhouse",
+    clientType: "Corenova AI Systems Product",
+    link: "https://portfolio-v0rz.onrender.com/#contact",
     metrics: [
-      { label: "Processing Speed", value: "45 sec" },
-      { label: "Manual Effort Reduction", value: "85%" },
-      { label: "Extraction Accuracy", value: "99.4%" },
+      { label: "Bank Connect", value: "15,000+" },
+      { label: "Build Stage", value: "80%" },
+      { label: "Tunnel Security", value: "256-Bit" },
     ],
-    description: "Architected a custom machine learning pipeline to parse, categorize, and validate thousands of unstructured invoices and shipping manifests daily.",
-    tags: ["Next.js", "Python AI", "OCR", "Cloudflare Edge"],
+    description: "AI system that connects and automates digital life. Features an AI Wealth Assistant, Universal Global Gateway, real-time SMS alerts, and military-grade encryption.",
+    tags: ["Python AI", "FastAPI", "OpenAI Vision", "Twilio SMS"],
   },
   {
-    category: "Cybersecurity Audit",
+    category: "Cybersecurity XDR",
     icon: <Shield className="text-emerald-400" size={20} />,
-    title: "FinTech Platform Vulnerability Remediation",
-    clientType: "Financial Services Provider",
+    title: "SentraLog XDR Threat Detection Platform",
+    clientType: "Enterprise Cybersecurity Product",
+    link: "https://sentralog-xdr.onrender.com/#",
     metrics: [
-      { label: "Patched Vulnerabilities", value: "14 Critical" },
-      { label: "Compliance Status", value: "100% NDPR" },
-      { label: "DDoS Mitigation", value: "Active WAF" },
+      { label: "Incident Containment", value: "100%" },
+      { label: "Log Telemetry", value: "Unified SIEM" },
+      { label: "DDoS Defense", value: "Cloudflare WAF" },
     ],
-    description: "Performed deep penetration testing, zero-trust network restructuring, and implemented strict Content Security Policies to secure financial transactions.",
-    tags: ["Penetration Testing", "NDPR Audit", "Cloudflare WAF", "Sentry"],
+    description: "Extended Detection & Response (XDR) security platform delivering unified SIEM log telemetry, real-time threat intelligence, and zero-trust audit compliance.",
+    tags: ["Cloudflare WAF", "SIEM Telemetry", "Sentry", "Zero-Trust IAM"],
   },
   {
-    category: "Web & Cloud Architecture",
+    category: "Web & Enterprise Cloud",
     icon: <Globe className="text-secondary" size={20} />,
-    title: "Scalable Multi-Tenant Enterprise Web Portal",
-    clientType: "B2B Technology Vendor",
+    title: "Healthcare Management System & Patient Portal",
+    clientType: "St. Jude Medical Network",
+    link: "/portfolio",
     metrics: [
-      { label: "Daily API Requests", value: "50k+" },
-      { label: "Global Latency", value: "< 50ms" },
-      { label: "Uptime SLA", value: "99.99%" },
+      { label: "Paperwork Reduction", value: "90%" },
+      { label: "Active Patients", value: "25,000+" },
+      { label: "Wait Time", value: "12 min" },
     ],
-    description: "Engineered a high-performance web platform with serverless edge rendering, global CDN caching, and automated dynamic sitemap generation for maximum SEO.",
-    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Cloudflare Workers"],
+    description: "Engineered a secure, HIPAA/NDPR-compliant digital healthcare portal with real-time electronic health records (EHR) and tele-consultation.",
+    tags: ["React 19", ".NET Core", "Azure Cloud", "PostgreSQL"],
   },
 ];
 
@@ -84,12 +87,24 @@ export function CaseStudiesSection() {
                     {item.icon}
                     <span>{item.category}</span>
                   </div>
-                  <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  {item.link ? (
+                    <a href={item.link} target={item.link.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer">
+                      <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+                  ) : (
+                    <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  )}
                 </div>
 
                 <p className="text-xs text-muted-foreground font-mono mb-2">{item.clientType}</p>
                 <h3 className="text-xl font-heading font-bold mb-4 group-hover:text-primary transition-colors">
-                  {item.title}
+                  {item.link ? (
+                    <a href={item.link} target={item.link.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer">
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                   {item.description}
