@@ -5,13 +5,18 @@ import { Calendar, Clock, ArrowLeft, Tag, User, CheckCircle2, Share2, HelpCircle
 import type { Metadata } from "next";
 import Script from "next/script";
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
   if (!post) return { title: "Post Not Found" };
 
@@ -35,7 +40,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage(props: Props) {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
