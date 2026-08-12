@@ -1,10 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, CheckCircle } from "lucide-react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export function ContactSection() {
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!turnstileToken) return;
+
+    setFormStatus("sending");
+
+    // Simulate form submission (replace with real API later)
+    setTimeout(() => {
+      setFormStatus("sent");
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-32 relative bg-card border-t border-border/50">
       <div className="container mx-auto px-6">
@@ -65,32 +82,57 @@ export function ContactSection() {
             {/* Ambient glow inside form */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 blur-[80px] pointer-events-none rounded-full" />
             
-            <form className="relative z-10 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-medium">Full Name</label>
-                  <input type="text" id="name" className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="John Doe" />
+            {formStatus === "sent" ? (
+              <div className="relative z-10 flex flex-col items-center justify-center text-center py-16 gap-6">
+                <div className="w-20 h-20 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center">
+                  <CheckCircle size={40} />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-                  <input type="email" id="email" className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="john@example.com" />
+                <h3 className="text-2xl font-heading font-bold">Message Sent!</h3>
+                <p className="text-muted-foreground max-w-xs">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+                <button
+                  onClick={() => setFormStatus("idle")}
+                  className="text-sm text-primary hover:underline mt-4"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form className="relative z-10 flex flex-col gap-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="name" className="text-sm font-medium">Full Name</label>
+                    <input type="text" id="name" required className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="John Doe" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className="text-sm font-medium">Email Address</label>
+                    <input type="email" id="email" required className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="john@example.com" />
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                <input type="text" id="subject" className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="How can we help?" />
-              </div>
+                
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                  <input type="text" id="subject" required className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="How can we help?" />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-medium">Message</label>
-                <textarea id="message" rows={5} className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="message" className="text-sm font-medium">Message</label>
+                  <textarea id="message" rows={5} required className="bg-card border border-border/50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                </div>
 
-              <MagneticButton className="w-full mt-4">
-                Send Message
-              </MagneticButton>
-            </form>
+                {/* Cloudflare Turnstile - Invisible bot protection */}
+                <Turnstile
+                  siteKey="0x4AAAAAAEN-gOKJwNA765T7"
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setTurnstileToken(null)}
+                  onExpire={() => setTurnstileToken(null)}
+                  options={{ theme: "dark", size: "invisible" }}
+                />
+
+                <MagneticButton className="w-full mt-4" disabled={formStatus === "sending"}>
+                  {formStatus === "sending" ? "Sending..." : "Send Message"}
+                </MagneticButton>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>
