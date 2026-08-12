@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { StructuredData } from "@/components/seo/structured-data";
 import { CookieBanner } from "@/components/ui/cookie-banner";
+import { AiTerminal } from "@/components/ui/ai-terminal";
 import { ConsentProvider } from "@/components/providers/consent-provider";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import { WebVitals } from "@/components/analytics/web-vitals";
@@ -118,6 +119,7 @@ export default function RootLayout({
             <Footer />
             <GoogleAnalytics />
             <WebVitals />
+            <AiTerminal />
             <CookieBanner />
           </LenisProvider>
         </ConsentProvider>

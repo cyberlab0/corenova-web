@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog-data";
 
 export const dynamic = "force-static";
 
@@ -6,10 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://corenovatechnology.com";
 
   // Core pages
-  const routes = [
+  const coreRoutes = [
     "",
     "/about",
     "/brand",
+    "/blog",
     "/legal/privacy",
     "/legal/terms",
     "/legal/cookies",
@@ -23,10 +25,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/legal/security",
   ];
 
-  return routes.map((route) => ({
+  const coreEntries = coreRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1.0 : route === "/about" ? 0.8 : 0.5,
+    changeFrequency: (route === "" ? "weekly" : route === "/blog" ? "weekly" : "monthly") as "weekly" | "monthly",
+    priority: route === "" ? 1.0 : route === "/about" ? 0.8 : route === "/blog" ? 0.9 : 0.5,
   }));
+
+  // Blog posts
+  const blogEntries = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...coreEntries, ...blogEntries];
 }

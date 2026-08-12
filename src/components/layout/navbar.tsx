@@ -38,6 +38,7 @@ export function Navbar() {
         <Link href="/#services" className="hover:text-foreground transition-colors">Services</Link>
         <Link href="/#about" className="hover:text-foreground transition-colors">About</Link>
         <Link href="/about" className="hover:text-foreground transition-colors">Founder</Link>
+        <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
         <Link href="/#contact" className="hover:text-foreground transition-colors">Contact</Link>
       </nav>
 
