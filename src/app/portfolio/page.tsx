@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 
 interface PortfolioProject {
   id: string;
@@ -164,6 +164,9 @@ export default function PortfolioPage() {
             Explore how our AI systems (VELA), cybersecurity platforms (SentraLog XDR), and custom enterprise engineering deliver measurable results.
           </p>
         </div>
+
+        {/* Live Cyberpunk Dashboard & Mission Files */}
+        <CyberpunkTelemetry />
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-16 border-b border-border/50 pb-6">
