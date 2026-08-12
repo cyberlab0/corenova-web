@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
+import { SentralogFlagshipSection } from "@/components/home/sentralog-flagship";
 
 interface PortfolioProject {
   id: string;
@@ -72,11 +73,11 @@ const projects: PortfolioProject[] = [
   },
   {
     id: "sentralog-xdr-platform",
-    title: "SentraLog XDR Security & Threat Detection Platform",
+    title: "SentraLog Security & Threat Detection Platform",
     client: "Enterprise Security Product",
     industry: "Cybersecurity & Threat Intelligence",
     category: "Cybersecurity",
-    liveLink: "https://sentralog-xdr.onrender.com/#",
+    liveLink: "https://sentralog.onrender.com/",
     challenge: "Legacy SIEM tools generate overwhelming false alerts, miss zero-day threats, and slow down incident containment during active attacks.",
     solution: "Engineered SentraLog XDR—an Extended Detection & Response (XDR) security platform featuring unified log telemetry, automated threat containment, and SIEM monitoring.",
     tech: ["Cloudflare WAF", "SIEM Telemetry", "Zero-Trust IAM", "Sentry", "Python Security", "Next.js"],
@@ -168,6 +169,9 @@ export default function PortfolioPage() {
 
         {/* Live Cyberpunk Dashboard & Mission Files */}
         <CyberpunkTelemetry />
+
+        {/* Flagship Product: SentraLog Real-Time SIEM & Threat Detection */}
+        <SentralogFlagshipSection />
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-16 border-b border-border/50 pb-6">
