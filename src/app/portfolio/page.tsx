@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 import { SentralogFlagshipSection } from "@/components/home/sentralog-flagship";
+import { ProveltFlagshipSection } from "@/components/home/provelt-flagship";
 import { VelaModal } from "@/components/ui/vela-modal";
 import { ProveltModal } from "@/components/ui/provelt-modal";
 
@@ -149,6 +150,9 @@ export default function PortfolioPage() {
 
         {/* Flagship Product: SentraLog Real-Time SIEM & Threat Detection */}
         <SentralogFlagshipSection />
+
+        {/* Classified Product: PROVELT Stealth Web & Mobile Ecosystem (50% Ready) */}
+        <ProveltFlagshipSection onOpenModal={() => setIsProveltModalOpen(true)} />
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-16 border-b border-border/50 pb-6">
