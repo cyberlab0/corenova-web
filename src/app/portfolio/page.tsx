@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 
 interface PortfolioProject {
