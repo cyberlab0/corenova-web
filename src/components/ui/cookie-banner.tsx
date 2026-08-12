@@ -1,35 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useConsent } from "@/components/providers/consent-provider";
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
+  const { consent, setConsent } = useConsent();
 
-  useEffect(() => {
-    // Check if the user has already made a choice
-    const cookieConsent = localStorage.getItem("corenova_cookie_consent");
-    if (!cookieConsent) {
-      // Delay showing the banner slightly for better UX
-      const timer = setTimeout(() => setIsVisible(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  // If already decided, hide
+  if (consent !== "unknown") return null;
 
   const handleAccept = () => {
-    localStorage.setItem("corenova_cookie_consent", "accepted");
-    setIsVisible(false);
+    setConsent("granted");
   };
 
   const handleDecline = () => {
-    localStorage.setItem("corenova_cookie_consent", "declined");
-    setIsVisible(false);
+    setConsent("denied");
   };
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {consent === "unknown" && (
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

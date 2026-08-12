@@ -6,6 +6,10 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { StructuredData } from "@/components/seo/structured-data";
 import { CookieBanner } from "@/components/ui/cookie-banner";
+import { ConsentProvider } from "@/components/providers/consent-provider";
+import GoogleAnalytics from "@/components/analytics/google-analytics";
+import { WebVitals } from "@/components/analytics/web-vitals";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,16 +38,34 @@ export default function RootLayout({
     >
       <head>
         <StructuredData />
+        <Script id="consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              analytics_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500,
+            });
+          `}
+        </Script>
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-background text-foreground">
-        <LenisProvider>
-          <Navbar />
-          <div className="flex-1">
-            {children}
-          </div>
-          <Footer />
-          <CookieBanner />
-        </LenisProvider>
+        <ConsentProvider>
+          <LenisProvider>
+            <Navbar />
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+            <GoogleAnalytics />
+            <WebVitals />
+            <CookieBanner />
+          </LenisProvider>
+        </ConsentProvider>
       </body>
     </html>
   );
