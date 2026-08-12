@@ -53,14 +53,28 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Founder portrait */}
-            <div className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl">
+            {/* Founder portrait with right-click & drag protection */}
+            <div 
+              className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl select-none"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}
+            >
               <img 
                 src="/michael-olowoselu.jpg" 
                 alt="Michael Olowoselu - Founder & CEO" 
-                className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-all duration-700"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700 pointer-events-none select-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none" />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent pointer-events-none z-10" />
+              {/* Transparent protection shield blocking right-click / drag */}
+              <div 
+                className="absolute inset-0 z-20" 
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              />
             </div>
             
             <div className="absolute -bottom-8 -right-8 bg-background p-8 rounded-3xl border border-border shadow-2xl backdrop-blur-xl">
