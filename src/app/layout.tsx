@@ -22,9 +22,64 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Corenova Technologies Ltd | Engineering the Future",
+  metadataBase: new URL("https://corenovatechnology.com"),
+  title: {
+    default: "Corenova Technology Ltd | Engineering the Future",
+    template: "%s | Corenova Technology",
+  },
   description: "We build intelligent software, automate business operations, secure digital infrastructure and develop scalable web applications for businesses worldwide.",
+  keywords: [
+    "AI Automation", "Cybersecurity", "Software Development", "Web Development",
+    "Cloud Solutions", "Technology Consulting", "Nigeria", "Lagos",
+    "Artificial Intelligence", "Corenova", "Corenova Technology",
+  ],
+  authors: [{ name: "Michael Olowoselu", url: "https://corenovatechnology.com/about" }],
+  creator: "Corenova Technology Ltd",
+  publisher: "Corenova Technology Ltd",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://corenovatechnology.com",
+    siteName: "Corenova Technology",
+    title: "Corenova Technology Ltd | Engineering the Future",
+    description: "AI Automation, Cybersecurity, Software & Web Development, Cloud Solutions. Helping businesses transform through cutting-edge technology.",
+    images: [
+      {
+        url: "/corenova-logo-dark.svg",
+        width: 400,
+        height: 100,
+        alt: "Corenova Technology Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@corenovaltd",
+    creator: "@corenovaltd",
+    title: "Corenova Technology Ltd | Engineering the Future",
+    description: "AI Automation, Cybersecurity, Software & Web Development, Cloud Solutions.",
+    images: ["/corenova-logo-dark.svg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://corenovatechnology.com",
+  },
+  verification: {
+    // Add Google Search Console verification if you have one
+    // google: "your-verification-code",
+  },
 };
+
 
 export default function RootLayout({
   children,

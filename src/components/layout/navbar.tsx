@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AnimatedLogo } from "@/components/ui/animated-logo";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { CommandPalette } from "@/components/ui/command-palette";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -41,6 +42,7 @@ export function Navbar() {
       </nav>
 
       <div className="flex items-center gap-4">
+        <CommandPalette />
         <MagneticButton className="hidden md:block" onClick={() => router.push('/#contact')}>
           Start Your Project
         </MagneticButton>
