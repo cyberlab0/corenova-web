@@ -37,10 +37,10 @@ export function Navbar() {
       <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-muted-foreground">
         <Link href="/#services" className="hover:text-foreground transition-colors">Services</Link>
         <Link href="/portfolio" className="hover:text-foreground transition-colors">Portfolio</Link>
+        <Link href="/why-us" className="hover:text-foreground transition-colors">Why Choose Us</Link>
         <Link href="/#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
         <Link href="/about" className="hover:text-foreground transition-colors">About</Link>
         <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-        <Link href="/careers" className="hover:text-foreground transition-colors">Careers</Link>
         <Link href="/#contact" className="hover:text-foreground transition-colors">Contact</Link>
       </nav>
 
