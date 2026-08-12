@@ -3,6 +3,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: true,
 };
 
 export default withSentryConfig(nextConfig, {
