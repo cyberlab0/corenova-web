@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Shield, Activity, Cpu, Play, CheckCircle, Flame, Layers } from "lucide-react";
+import { VelaModal } from "@/components/ui/vela-modal";
 
 export function CyberpunkTelemetry() {
+  const [isVelaModalOpen, setIsVelaModalOpen] = useState(false);
+
   const dashboardBadges = [
     "Threat Detection",
     "Python",
@@ -42,7 +46,8 @@ export function CyberpunkTelemetry() {
       badgeStyle: "text-emerald-400 border-emerald-500/50 bg-emerald-500/10",
       desc: "A real-time SIEM and Threat Detection platform built to ingest, analyze, and alert on thousands of security events per second.",
       modules: ["Next.js", "Python", "Go", "WebSocket", "PostgreSQL"],
-      executeUrl: "https://portfolio-v0rz.onrender.com/#sentralog",
+      executeUrl: "https://sentralog.onrender.com/login",
+      isVela: false,
     },
     {
       id: "FILE_ID: 002BUILDING",
@@ -51,7 +56,8 @@ export function CyberpunkTelemetry() {
       badgeStyle: "text-cyan-400 border-cyan-500/50 bg-cyan-500/10",
       desc: "An AI system designed to connect, analyze, and automate digital security life. Neural parsing of threat intelligence feeds.",
       modules: ["AI/ML", "Python", "TensorFlow", "React"],
-      executeUrl: "https://portfolio-v0rz.onrender.com/#vela",
+      executeUrl: "#vela",
+      isVela: true,
     },
   ];
 
@@ -179,20 +185,33 @@ export function CyberpunkTelemetry() {
                   </div>
                 </div>
 
-                <a
-                  href={file.executeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold text-xs transition-all uppercase tracking-widest shadow-lg shadow-cyan-500/10"
-                >
-                  <Play size={12} className="fill-current" />
-                  [EXECUTE FILE]
-                </a>
+                {file.isVela ? (
+                  <button
+                    onClick={() => setIsVelaModalOpen(true)}
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold text-xs transition-all uppercase tracking-widest shadow-lg shadow-cyan-500/10"
+                  >
+                    <Play size={12} className="fill-current" />
+                    [EXECUTE FILE]
+                  </button>
+                ) : (
+                  <a
+                    href={file.executeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold text-xs transition-all uppercase tracking-widest shadow-lg shadow-cyan-500/10"
+                  >
+                    <Play size={12} className="fill-current" />
+                    [EXECUTE FILE]
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Interactive VELA Status Modal */}
+      <VelaModal isOpen={isVelaModalOpen} onClose={() => setIsVelaModalOpen(false)} />
     </section>
   );
 }

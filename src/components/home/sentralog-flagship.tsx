@@ -141,7 +141,7 @@ export function SentralogFlagshipSection() {
         {/* Action Buttons Row */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://sentralog.onrender.com/"
+            href="https://sentralog.onrender.com/login"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-600/30"
@@ -150,7 +150,7 @@ export function SentralogFlagshipSection() {
             Live Demo
           </a>
           <a
-            href="https://sentralog.onrender.com/"
+            href="https://sentralog.onrender.com/login"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-200 font-medium text-sm transition-colors"
@@ -159,7 +159,7 @@ export function SentralogFlagshipSection() {
             View Architecture
           </a>
           <a
-            href="https://sentralog.onrender.com/"
+            href="https://sentralog.onrender.com/login"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white font-medium text-sm transition-colors"

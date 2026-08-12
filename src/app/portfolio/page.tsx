@@ -6,6 +6,7 @@ import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, S
 import Link from "next/link";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 import { SentralogFlagshipSection } from "@/components/home/sentralog-flagship";
+import { VelaModal } from "@/components/ui/vela-modal";
 
 interface PortfolioProject {
   id: string;
@@ -77,7 +78,7 @@ const projects: PortfolioProject[] = [
     client: "Enterprise Security Product",
     industry: "Cybersecurity & Threat Intelligence",
     category: "Cybersecurity",
-    liveLink: "https://sentralog.onrender.com/",
+    liveLink: "https://sentralog.onrender.com/login",
     challenge: "Legacy SIEM tools generate overwhelming false alerts, miss zero-day threats, and slow down incident containment during active attacks.",
     solution: "Engineered SentraLog XDR—an Extended Detection & Response (XDR) security platform featuring unified log telemetry, automated threat containment, and SIEM monitoring.",
     tech: ["Cloudflare WAF", "SIEM Telemetry", "Zero-Trust IAM", "Sentry", "Python Security", "Next.js"],
@@ -142,6 +143,7 @@ const categories = ["All", "AI Systems", "Cybersecurity", "Web & Mobile", "Cloud
 
 export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState<string>("All");
+  const [isVelaModalOpen, setIsVelaModalOpen] = useState<boolean>(false);
 
   const filteredProjects = activeTab === "All"
     ? projects
@@ -282,7 +284,24 @@ export default function PortfolioPage() {
                   )}
 
                   {/* Action Buttons */}
-                  {project.liveLink && (
+                  {project.isBuilding ? (
+                    <div className="flex flex-wrap items-center gap-3 mb-6">
+                      <button
+                        onClick={() => setIsVelaModalOpen(true)}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 text-black font-bold text-xs hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20"
+                      >
+                        <span>View Concept</span>
+                        <Zap size={14} />
+                      </button>
+                      <button
+                        onClick={() => setIsVelaModalOpen(true)}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-background border border-cyan-500/30 text-cyan-400 font-bold text-xs hover:bg-cyan-500/10 transition-colors"
+                      >
+                        <span>See Roadmap</span>
+                        <ArrowRight size={14} />
+                      </button>
+                    </div>
+                  ) : project.liveLink ? (
                     <div className="flex flex-wrap items-center gap-3 mb-6">
                       <a
                         href={project.liveLink}
@@ -290,22 +309,11 @@ export default function PortfolioPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                       >
-                        <span>{project.isBuilding ? "View Concept" : "Explore SentraLog XDR"}</span>
+                        <span>Explore SentraLog Security</span>
                         <ExternalLink size={14} />
                       </a>
-                      {project.isBuilding && (
-                        <a
-                          href={project.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-background border border-border text-foreground text-xs font-medium hover:bg-secondary/10 transition-colors"
-                        >
-                          <span>See Roadmap</span>
-                          <ArrowRight size={14} />
-                        </a>
-                      )}
                     </div>
-                  )}
+                  ) : null}
                 </div>
 
                 {/* Tech tags */}
@@ -337,6 +345,9 @@ export default function PortfolioPage() {
           </Link>
         </div>
       </div>
+
+      {/* VELA AI Development Status Modal */}
+      <VelaModal isOpen={isVelaModalOpen} onClose={() => setIsVelaModalOpen(false)} />
     </main>
   );
 }
