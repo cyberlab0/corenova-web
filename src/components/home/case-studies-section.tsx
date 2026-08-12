@@ -33,18 +33,18 @@ const caseStudies = [
     tags: ["Cloudflare WAF", "SIEM Telemetry", "Sentry", "Zero-Trust IAM"],
   },
   {
-    category: "Web & Enterprise Cloud",
-    icon: <Globe className="text-secondary" size={20} />,
-    title: "Healthcare Management System & Patient Portal",
-    clientType: "St. Jude Medical Network",
+    category: "Web & Mobile Ecosystem",
+    icon: <Globe className="text-amber-400" size={20} />,
+    title: "PROVELT: Classified Web & Mobile Ecosystem",
+    clientType: "Corenova Stealth Product",
     link: "/portfolio",
     metrics: [
-      { label: "Paperwork Reduction", value: "90%" },
-      { label: "Active Patients", value: "25,000+" },
-      { label: "Wait Time", value: "12 min" },
+      { label: "Build Stage", value: "50%" },
+      { label: "Clearance", value: "Level 5" },
+      { label: "Architecture", value: "Stealth" },
     ],
-    description: "Engineered a secure, HIPAA/NDPR-compliant digital healthcare portal with real-time electronic health records (EHR) and tele-consultation.",
-    tags: ["React 19", ".NET Core", "Azure Cloud", "PostgreSQL"],
+    description: "CLASSIFIED UNTIL RELEASED: Next-generation web & mobile application ecosystem operating under 50% completed development milestone.",
+    tags: ["React Native", "Next.js 16", "TypeScript", "Node.js"],
   },
 ];
 
