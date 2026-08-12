@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 import { SentralogFlagshipSection } from "@/components/home/sentralog-flagship";
 import { VelaModal } from "@/components/ui/vela-modal";
@@ -311,6 +312,15 @@ export default function PortfolioPage() {
                       >
                         <span>Explore SentraLog Security</span>
                         <ExternalLink size={14} />
+                      </a>
+                      <a
+                        href="https://github.com/cyberlab0/SentraLog"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-background border border-border text-muted-foreground hover:text-foreground text-xs font-medium hover:bg-secondary/10 transition-colors"
+                      >
+                        <FaGithub size={14} />
+                        <span>GitHub</span>
                       </a>
                     </div>
                   ) : null}
