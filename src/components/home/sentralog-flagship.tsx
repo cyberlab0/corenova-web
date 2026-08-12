@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, ShieldAlert, Cpu, Activity, Github, Play, Terminal, Layers } from "lucide-react";
+import { ExternalLink, ShieldAlert, Cpu, Activity, Play, Terminal, Layers } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export function SentralogFlagshipSection() {
   // Real-time fluctuating telemetry states to simulate live SIEM metrics
@@ -163,7 +164,7 @@ export function SentralogFlagshipSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white font-medium text-sm transition-colors"
           >
-            <Github size={16} />
+            <FaGithub size={16} />
             GitHub
           </a>
         </div>
