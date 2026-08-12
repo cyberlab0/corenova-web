@@ -53,12 +53,14 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Premium portrait placeholder */}
-            <div className="aspect-[4/5] rounded-3xl bg-card border border-border overflow-hidden relative group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-muted-foreground font-heading text-xl tracking-widest uppercase">CEO Portrait</span>
-              </div>
+            {/* Founder portrait */}
+            <div className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl">
+              <img 
+                src="/michael-olowoselu.jpg" 
+                alt="Michael Olowoselu - Founder & CEO" 
+                className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none" />
             </div>
             
             <div className="absolute -bottom-8 -right-8 bg-background p-8 rounded-3xl border border-border shadow-2xl backdrop-blur-xl">
