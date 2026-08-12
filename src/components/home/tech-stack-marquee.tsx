@@ -8,11 +8,11 @@ import {
   SiTypescript, 
   SiPython, 
   SiPostgresql, 
-  SiAmazonwebservices, 
   SiTailwindcss,
   SiSentry,
   SiDocker 
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa";
 
 const techStack = [
   { name: "Next.js 16", icon: SiNextdotjs, color: "#ffffff" },
@@ -21,7 +21,7 @@ const techStack = [
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "Python AI/ML", icon: SiPython, color: "#3776AB" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "AWS Cloud", icon: SiAmazonwebservices, color: "#FF9900" },
+  { name: "AWS Cloud", icon: FaAws, color: "#FF9900" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Sentry Monitoring", icon: SiSentry, color: "#362D59" },
   { name: "Docker", icon: SiDocker, color: "#2496ED" },
