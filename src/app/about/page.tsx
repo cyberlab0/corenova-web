@@ -67,8 +67,8 @@ export default function AboutPage() {
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent pointer-events-none z-10" />
+              {/* Subtle edge vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-10" />
               {/* Transparent protection shield blocking right-click / drag */}
               <div 
                 className="absolute inset-0 z-20" 
@@ -77,9 +77,9 @@ export default function AboutPage() {
               />
             </div>
             
-            <div className="absolute -bottom-8 -right-8 bg-background p-8 rounded-3xl border border-border shadow-2xl backdrop-blur-xl">
-              <h3 className="text-2xl font-heading font-bold text-foreground">Michael Olowoselu</h3>
-              <p className="text-primary font-medium">Founder & Chief Executive Officer</p>
+            <div className="mt-6 md:absolute md:-bottom-6 md:-right-6 bg-card/95 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 shadow-2xl backdrop-blur-2xl z-30">
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">Michael Olowoselu</h3>
+              <p className="text-primary font-medium text-sm md:text-base">Founder & Chief Executive Officer</p>
             </div>
           </motion.div>
 

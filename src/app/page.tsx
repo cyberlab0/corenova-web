@@ -1,19 +1,28 @@
 import { HeroSection } from "@/components/home/hero-section";
+import { TechStackMarquee } from "@/components/home/tech-stack-marquee";
 import { ServicesSection } from "@/components/home/services-section";
+import { CaseStudiesSection } from "@/components/home/case-studies-section";
+import { ProcessSection } from "@/components/home/process-section";
 import { FeaturesSection } from "@/components/home/features-section";
+import { FounderSummarySection } from "@/components/home/founder-summary-section";
+import { FaqSection } from "@/components/home/faq-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { IntroAnimation } from "@/components/ui/intro-animation";
-import { ClientMarquee } from "@/components/home/client-marquee";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <IntroAnimation />
       <HeroSection />
-      <ClientMarquee />
+      <TechStackMarquee />
       <ServicesSection />
+      <CaseStudiesSection />
+      <ProcessSection />
       <FeaturesSection />
+      <FounderSummarySection />
+      <FaqSection />
       <ContactSection />
     </main>
   );
 }
+

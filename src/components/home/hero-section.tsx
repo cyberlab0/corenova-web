@@ -18,28 +18,27 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium backdrop-blur-sm"
+          className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-widest backdrop-blur-sm"
         >
-          Engineering the Future
+          Intelligent Technology Agency
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tighter max-w-5xl leading-[1.1] mb-8"
+          className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold tracking-tight max-w-5xl leading-[1.1] mb-8"
         >
-          Engineering the Future with <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI, Automation</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Cybersecurity</span>
+          Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">AI Automation</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Enterprise Cybersecurity</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12"
+          className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-12 leading-relaxed"
         >
-          We build intelligent software, automate business operations, secure digital infrastructure and develop scalable web applications for businesses worldwide.
+          We build autonomous AI workflows, harden zero-trust digital infrastructure, and engineer scalable web platforms for businesses from Lagos to the world.
         </motion.p>
 
         <motion.div
