@@ -7,6 +7,7 @@ import Link from "next/link";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
 import { SentralogFlagshipSection } from "@/components/home/sentralog-flagship";
 import { VelaModal } from "@/components/ui/vela-modal";
+import { ProveltModal } from "@/components/ui/provelt-modal";
 
 interface PortfolioProject {
   id: string;
@@ -21,6 +22,7 @@ interface PortfolioProject {
   imageGradient: string;
   liveLink?: string;
   isBuilding?: boolean;
+  isClassified?: boolean;
   progress?: number;
   velaFeatures?: {
     icon: React.ReactNode;
@@ -90,52 +92,23 @@ const projects: PortfolioProject[] = [
     imageGradient: "from-indigo-600/40 via-purple-600/30 to-rose-600/20",
   },
   {
-    id: "healthcare-erp",
-    title: "Healthcare Management System & Patient Portal",
-    client: "St. Jude Medical Network",
-    industry: "Healthcare",
+    id: "provelt-classified-app",
+    title: "PROVELT: Classified Web & Mobile Ecosystem",
+    client: "Corenova Stealth Product",
+    industry: "Stealth Web & Mobile Platform",
     category: "Web & Mobile",
-    challenge: "Paper-based patient records and manual appointment scheduling caused long patient wait times and high administrative overhead.",
-    solution: "Engineered a secure, HIPAA/NDPR-compliant digital healthcare portal with real-time electronic health records (EHR) and tele-consultation.",
-    tech: ["React 19", ".NET Core", "Azure Cloud", "PostgreSQL", "Tailwind CSS"],
+    isBuilding: true,
+    isClassified: true,
+    progress: 50,
+    challenge: "CLASSIFIED DIRECTIVE: Architectural details and application features are locked under Level 5 security clearance until official release.",
+    solution: "PROVELT is a classified next-generation web and mobile application ecosystem operating in stealth mode. Currently at 50% completed development milestone.",
+    tech: ["React Native", "Next.js 16", "TypeScript", "Node.js", "Zero-Knowledge Encryption"],
     results: [
-      "Reduced paperwork overhead by 90%",
-      "Serves 25,000+ registered patients",
-      "Cut appointment wait times from 2 hours to 12 minutes",
+      "CLASSIFIED UNTIL RELEASED (50% Ready)",
+      "Stealth Mode Architecture active",
+      "Closed Alpha testing phase in progress",
     ],
-    imageGradient: "from-blue-600/30 to-cyan-500/20",
-  },
-  {
-    id: "restaurant-pos",
-    title: "Multi-Location Restaurant POS & Inventory Engine",
-    client: "Flavors Hospitality Group",
-    industry: "Hospitality & Retail",
-    category: "Web & Mobile",
-    challenge: "Managing sales and inventory across 20 distinct branch locations resulted in inventory discrepancies and delayed financial reporting.",
-    solution: "Built a centralized cloud POS and automated supply chain management system with offline-first sync and instant mobile checkout.",
-    tech: ["Next.js 16", "Node.js", "Redis", "Cloudflare Workers", "PWA"],
-    results: [
-      "Deployed across 20 active branch locations",
-      "Processes 15,000+ daily customer orders",
-      "Real-time cross-location inventory reconciliation",
-    ],
-    imageGradient: "from-amber-500/30 to-orange-600/20",
-  },
-  {
-    id: "school-erp",
-    title: "School ERP & Online Tuition Gateway",
-    client: "Apex Academic Foundation",
-    industry: "Education",
-    category: "Web & Mobile",
-    challenge: "Manual tuition collection and paper report cards led to revenue leakage and delayed parent communications.",
-    solution: "Developed an all-in-one educational management system featuring online tuition payments, digital gradebooks, and an instant parent mobile portal.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Paystack API", "AWS S3"],
-    results: [
-      "Supports 10,000+ active students & parents",
-      "100% online tuition collection with zero reconciliation errors",
-      "Instant gradebook & attendance alerts",
-    ],
-    imageGradient: "from-purple-600/30 to-pink-500/20",
+    imageGradient: "from-amber-600/40 via-orange-600/30 to-red-600/20",
   },
 ];
 
@@ -144,6 +117,7 @@ const categories = ["All", "AI Systems", "Cybersecurity", "Web & Mobile", "Cloud
 export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState<string>("All");
   const [isVelaModalOpen, setIsVelaModalOpen] = useState<boolean>(false);
+  const [isProveltModalOpen, setIsProveltModalOpen] = useState<boolean>(false);
 
   const filteredProjects = activeTab === "All"
     ? projects
@@ -204,7 +178,11 @@ export default function PortfolioPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 className={`p-8 rounded-3xl bg-card border ${
-                  project.isBuilding ? "border-cyan-500/50 ring-1 ring-cyan-500/20" : "border-border/50 hover:border-primary/40"
+                  project.isClassified
+                    ? "border-amber-500/50 ring-1 ring-amber-500/20"
+                    : project.isBuilding
+                    ? "border-cyan-500/50 ring-1 ring-cyan-500/20"
+                    : "border-border/50 hover:border-primary/40"
                 } transition-all duration-300 flex flex-col justify-between group relative overflow-hidden`}
               >
                 <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-br ${project.imageGradient} blur-[90px] pointer-events-none rounded-full`} />
@@ -215,12 +193,17 @@ export default function PortfolioPage() {
                       <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
                         {project.category}
                       </span>
-                      {project.isBuilding && (
+                      {project.isClassified ? (
+                        <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold animate-pulse flex items-center gap-1.5 border border-amber-500/30">
+                          <Lock size={12} />
+                          CLASSIFIED UNTIL RELEASED (50% Ready)
+                        </span>
+                      ) : project.isBuilding ? (
                         <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold animate-pulse flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
                           Currently Building
                         </span>
-                      )}
+                      ) : null}
                     </div>
                     <span className="text-xs font-mono text-muted-foreground">{project.industry}</span>
                   </div>
@@ -230,16 +213,16 @@ export default function PortfolioPage() {
                   </h2>
                   <p className="text-xs text-primary font-medium mb-6">Product / Client: {project.client}</p>
 
-                  {/* Progress bar if Currently Building */}
+                  {/* Progress bar if Currently Building or Classified */}
                   {project.isBuilding && project.progress && (
-                    <div className="mb-6 p-4 rounded-2xl bg-background/90 border border-cyan-500/30">
+                    <div className={`mb-6 p-4 rounded-2xl bg-background/90 border ${project.isClassified ? "border-amber-500/30" : "border-cyan-500/30"}`}>
                       <div className="flex items-center justify-between text-xs font-bold mb-2">
                         <span className="text-foreground uppercase tracking-wider font-mono">Development Progress</span>
-                        <span className="text-cyan-400 font-mono text-sm">{project.progress}%</span>
+                        <span className={`${project.isClassified ? "text-amber-400" : "text-cyan-400"} font-mono text-sm`}>{project.progress}%</span>
                       </div>
                       <div className="w-full h-2.5 rounded-full bg-secondary/20 overflow-hidden">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                          className={`h-full bg-gradient-to-r ${project.isClassified ? "from-amber-500 via-orange-500 to-red-600" : "from-cyan-500 to-blue-500"} rounded-full`}
                           initial={{ width: 0 }}
                           animate={{ width: `${project.progress}%` }}
                           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -270,13 +253,13 @@ export default function PortfolioPage() {
                     </div>
                   )}
 
-                  {/* Results list if not VELA */}
+                  {/* Results list */}
                   {!project.velaFeatures && (
                     <div className="p-4 rounded-2xl bg-background/80 border border-border/40 mb-6 space-y-2">
                       <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Key Deliverables & Results</p>
                       {project.results.map((res, rIdx) => (
                         <div key={rIdx} className="flex items-center gap-2 text-xs font-medium text-foreground">
-                          <CheckCircle2 size={14} className="text-green-400 shrink-0" />
+                          <CheckCircle2 size={14} className={project.isClassified ? "text-amber-400 shrink-0" : "text-green-400 shrink-0"} />
                           <span>{res}</span>
                         </div>
                       ))}
@@ -284,7 +267,24 @@ export default function PortfolioPage() {
                   )}
 
                   {/* Action Buttons */}
-                  {project.isBuilding ? (
+                  {project.isClassified ? (
+                    <div className="flex flex-wrap items-center gap-3 mb-6">
+                      <button
+                        onClick={() => setIsProveltModalOpen(true)}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-black font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-amber-500/20"
+                      >
+                        <span>Decrypt File</span>
+                        <Lock size={14} />
+                      </button>
+                      <button
+                        onClick={() => setIsProveltModalOpen(true)}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-background border border-amber-500/40 text-amber-400 font-bold text-xs hover:bg-amber-500/10 transition-colors"
+                      >
+                        <span>Request Access</span>
+                        <ArrowRight size={14} />
+                      </button>
+                    </div>
+                  ) : project.isBuilding ? (
                     <div className="flex flex-wrap items-center gap-3 mb-6">
                       <button
                         onClick={() => setIsVelaModalOpen(true)}
@@ -348,6 +348,9 @@ export default function PortfolioPage() {
 
       {/* VELA AI Development Status Modal */}
       <VelaModal isOpen={isVelaModalOpen} onClose={() => setIsVelaModalOpen(false)} />
+
+      {/* PROVELT Classified Status Modal */}
+      <ProveltModal isOpen={isProveltModalOpen} onClose={() => setIsProveltModalOpen(false)} />
     </main>
   );
 }
