@@ -4,36 +4,7 @@ import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Globe, Shield, Heart, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const openPositions = [
-  {
-    title: "Senior AI & Automation Engineer",
-    type: "Full-Time",
-    location: "Remote / Lagos, Nigeria",
-    dept: "AI Systems",
-    desc: "Architect custom LLM pipelines, RAG systems, and autonomous agent workflows using Python, FastAPI, OpenAI, and LangChain.",
-  },
-  {
-    title: "Full-Stack Software Engineer (Next.js & TypeScript)",
-    type: "Full-Time",
-    location: "Remote / Lagos, Nigeria",
-    dept: "Engineering",
-    desc: "Build scalable enterprise web platforms and client portals with Next.js 16, React 19, Tailwind CSS, and Cloudflare Workers.",
-  },
-  {
-    title: "Cybersecurity & SOC Analyst",
-    type: "Full-Time",
-    location: "Lagos, Nigeria",
-    dept: "Cybersecurity",
-    desc: "Perform penetration testing, zero-trust vulnerability assessments, SIEM monitoring, and NDPR compliance audits for client networks.",
-  },
-  {
-    title: "AI & Software Development Intern (Graduate Program)",
-    type: "Internship / Full-Time",
-    location: "Lagos, Nigeria",
-    dept: "Emerging Tech",
-    desc: "Join our intensive hands-on graduate training program working on live production AI and web engineering projects.",
-  },
-];
+
 
 const culturePerks = [
   { icon: <Globe size={24} className="text-primary" />, title: "Remote-First Flexibility", desc: "Work from anywhere with flexible schedules and modern async workflows." },
@@ -80,43 +51,20 @@ export default function CareersPage() {
           </div>
         </div>
 
-        {/* Open Positions */}
-        <div>
-          <h2 className="text-2xl font-heading font-bold mb-8 border-b border-border/50 pb-4">Open Positions</h2>
-          <div className="space-y-6">
-            {openPositions.map((pos, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group"
-              >
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                      {pos.dept}
-                    </span>
-                    <span className="text-xs font-mono text-muted-foreground">{pos.type}</span>
-                    <span className="text-xs font-mono text-muted-foreground">• {pos.location}</span>
-                  </div>
-                  <h3 className="text-xl font-heading font-bold mb-2 group-hover:text-primary transition-colors">
-                    {pos.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground max-w-2xl">{pos.desc}</p>
-                </div>
-
-                <a
-                  href="mailto:contact@corenovatechnology.com?subject=Career Application: "
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-background border border-border/60 hover:border-primary/50 text-sm font-medium transition-colors shrink-0"
-                >
-                  <span>Apply Now</span>
-                  <ArrowRight size={16} />
-                </a>
-              </motion.div>
-            ))}
-          </div>
+        {/* Spontaneous Applications */}
+        <div className="p-12 rounded-3xl bg-card border border-border/50 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[90px] pointer-events-none rounded-full" />
+          <h2 className="text-3xl font-heading font-bold mb-4 relative z-10">Don&apos;t see a listed role for your expertise?</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-8 relative z-10">
+            We are always looking for exceptional software engineers, AI researchers, and cybersecurity specialists. Send us your resume and portfolio, and our team will reach out when relevant opportunities open up.
+          </p>
+          <a
+            href="mailto:contact@corenovatechnology.com?subject=General Career Inquiry"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-sm transition-colors relative z-10"
+          >
+            Send Spontaneous Application
+            <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </main>
