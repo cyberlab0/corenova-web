@@ -1,7 +1,7 @@
 import { sendGAEvent } from "@next/third-parties/google";
 
 // Environment variables
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-FJK7YVT6MT";
 
 /**
  * Check if GA should be enabled (not in development)
