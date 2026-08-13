@@ -46,7 +46,7 @@ export function CyberpunkTelemetry() {
       badgeStyle: "text-emerald-400 border-emerald-500/50 bg-emerald-500/10",
       desc: "A real-time SIEM and Threat Detection platform built to ingest, analyze, and alert on thousands of security events per second.",
       modules: ["Next.js", "Python", "Go", "WebSocket", "PostgreSQL"],
-      executeUrl: "https://sentralog.onrender.com/login",
+      executeUrl: "https://sentra-log.vercel.app/login",
       isVela: false,
     },
     {

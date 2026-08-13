@@ -82,7 +82,7 @@ const projects: PortfolioProject[] = [
     client: "Enterprise Security Product",
     industry: "Cybersecurity & Threat Intelligence",
     category: "Cybersecurity",
-    liveLink: "https://sentralog.onrender.com/login",
+    liveLink: "https://sentra-log.vercel.app/login",
     challenge: "Legacy SIEM tools generate overwhelming false alerts, miss zero-day threats, and slow down incident containment during active attacks.",
     solution: "Engineered SentraLog XDR—an Extended Detection & Response (XDR) security platform featuring unified log telemetry, automated threat containment, and SIEM monitoring.",
     tech: ["Cloudflare WAF", "SIEM Telemetry", "Zero-Trust IAM", "Sentry", "Python Security", "Next.js"],

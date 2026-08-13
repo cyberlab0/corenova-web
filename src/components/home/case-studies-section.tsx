@@ -23,7 +23,7 @@ const caseStudies = [
     icon: <Shield className="text-emerald-400" size={20} />,
     title: "SentraLog XDR Threat Detection Platform",
     clientType: "Enterprise Cybersecurity Product",
-    link: "https://sentralog.onrender.com/login",
+    link: "https://sentra-log.vercel.app/login",
     metrics: [
       { label: "Incident Containment", value: "100%" },
       { label: "Log Telemetry", value: "Unified SIEM" },
