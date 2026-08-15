@@ -15,9 +15,9 @@ export function Navbar() {
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.75]);
   const logoOrigin = useTransform(scrollY, [0, 100], ["0% 50%", "0% 50%"]);
   
-  // Also adjust padding of the navbar
+  // Adjust padding & background of the navbar dynamically
   const py = useTransform(scrollY, [0, 100], ["1rem", "0.5rem"]);
-  const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.8]);
+  const headerBg = useTransform(scrollY, [0, 100], ["rgba(11, 18, 32, 0)", "rgba(11, 18, 32, 0.85)"]);
 
   return (
     <motion.header 
@@ -25,7 +25,7 @@ export function Navbar() {
       style={{ 
         paddingTop: py, 
         paddingBottom: py,
-        backgroundColor: `rgba(11, 18, 32, ${bgOpacity.get()})` 
+        backgroundColor: headerBg,
       }}
     >
       <Link href="/" className="z-50 relative block">

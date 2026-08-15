@@ -54,10 +54,17 @@ export function AiTerminal() {
   const [isTyping, setIsTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,8 +86,10 @@ export function AiTerminal() {
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI typing delay
-    setTimeout(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    // Simulate AI typing delay safely
+    timerRef.current = setTimeout(() => {
       const response = getAIResponse(userInput);
       setMessages((prev) => [...prev, { type: "ai", text: response }]);
       setIsTyping(false);

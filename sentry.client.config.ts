@@ -6,7 +6,7 @@ Sentry.init({
   // Performance Monitoring
   tracesSampleRate: 1.0,
 
-  // Set sampling rate for profiling - this is relative to tracesSampleRate
+  // Set sampling rate for profiling - relative to tracesSampleRate
   profilesSampleRate: 1.0,
 
   // Capture Replay Sessions
@@ -16,7 +16,19 @@ Sentry.init({
   // Only enable in production
   enabled: process.env.NODE_ENV === "production",
 
+  // Ignore noisy non-app browser errors
+  ignoreErrors: [
+    "ResizeObserver loop limit exceeded",
+    "ResizeObserver loop completed with undelivered notifications",
+    "Failed to fetch",
+    "NetworkError when attempting to fetch resource",
+    "Load failed",
+    "User rejected the request",
+    "The operation was aborted",
+  ],
+
   integrations: [
     Sentry.replayIntegration(),
   ],
 });
+
