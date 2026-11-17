@@ -4,6 +4,13 @@ import { withSentryConfig } from "@sentry/nextjs";
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
+  poweredByHeader: false,
+  productionBrowserSourceMaps: false,
+  compiler: {
+    removeConsole: {
+      exclude: ["error"],
+    },
+  },
 };
 
 export default withSentryConfig(nextConfig, {
@@ -11,11 +18,8 @@ export default withSentryConfig(nextConfig, {
   org: "corenova-technology",
   project: "corenova-web",
 
-  // Upload a larger set of source maps for prettier stack traces
-  widenClientFileUpload: true,
-
-  // Configure source maps
+  // Disable public source map emission on static exports so original source code is never exposed
   sourcemaps: {
-    deleteSourcemapsAfterUpload: true,
+    disable: true,
   },
 });

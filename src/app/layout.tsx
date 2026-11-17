@@ -8,6 +8,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { CookieBanner } from "@/components/ui/cookie-banner";
 import { AiTerminal } from "@/components/ui/ai-terminal";
 import { ConsentProvider } from "@/components/providers/consent-provider";
+import { SecurityShield } from "@/components/providers/security-shield";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import { WebVitals } from "@/components/analytics/web-vitals";
 import Script from "next/script";
@@ -111,6 +112,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-background text-foreground">
         <ConsentProvider>
+          <SecurityShield />
           <LenisProvider>
             <Navbar />
             <div className="flex-1">

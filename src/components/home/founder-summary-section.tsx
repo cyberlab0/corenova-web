@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ShieldAlert, Cpu, Award } from "lucide-react";
+import { ArrowRight, ShieldAlert, Cpu } from "lucide-react";
+import { BrandBannerCard } from "@/components/ui/brand-banner-card";
 
 export function FounderSummarySection() {
   return (
     <section id="about" className="py-32 relative bg-card/30 border-t border-border/50 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Company Visual Column */}
+          {/* Company Brand Banner Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -17,14 +18,7 @@ export function FounderSummarySection() {
             transition={{ duration: 0.8 }}
             className="relative max-w-md mx-auto lg:max-w-none w-full"
           >
-            <div className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl">
-              <img 
-                src="/corenova-company.jpg" 
-                alt="CoreNovaTechnologiesLTD - Enterprise AI & Cybersecurity Company" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none z-10" />
-            </div>
+            <BrandBannerCard />
 
             {/* Sharp, highly legible company identity card */}
             <div className="mt-6 md:absolute md:-bottom-6 md:-right-6 bg-card/95 p-6 rounded-2xl border border-primary/30 shadow-2xl backdrop-blur-2xl z-30">

@@ -33,7 +33,7 @@ export function proxy(request: NextRequest) {
   // Define allowed domains including all Sentry ingest subdomains and Replay blob workers
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://browser.sentry-cdn.com;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://browser.sentry-cdn.com;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: https://www.google-analytics.com https://maps.gstatic.com https://*.googleapis.com;
     font-src 'self';

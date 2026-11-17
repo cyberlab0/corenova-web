@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ShieldCheck, Building2, FileCheck2, UserCheck, Landmark, MapPin } from "lucide-react";
+import { ChevronDown, ShieldCheck, Building2, FileCheck2, UserCheck, Landmark, MapPin, Target } from "lucide-react";
 import { LocationMapCard } from "@/components/ui/location-map-card";
+import { BrandBannerCard } from "@/components/ui/brand-banner-card";
 
 const timelineEvents = [
   { year: "Early Years", title: "Born in Calabar", desc: "Discovered a passion for computers and technology during secondary school." },
@@ -58,16 +59,8 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Company Visual */}
-            <div className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl">
-              <img 
-                src="/corenova-company.jpg" 
-                alt="CoreNovaTechnologiesLTD - AI Automation, Cybersecurity & Software Engineering" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-              />
-              {/* Subtle edge vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none z-10" />
-            </div>
+            {/* Company Brand Banner */}
+            <BrandBannerCard />
             
             <div className="mt-6 md:absolute md:-bottom-6 md:-right-6 bg-card/95 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 shadow-2xl backdrop-blur-2xl z-30">
               <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">CoreNovaTechnologiesLTD</h3>
@@ -165,9 +158,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission, Vision, Values */}
+      {/* Mission, Vision, Goal, Values */}
       <section className="container mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +169,7 @@ export default function AboutPage() {
           >
             <h3 className="text-2xl font-heading font-bold text-primary mb-4">Our Vision</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              To become one of Africa's most trusted technology companies by empowering businesses through intelligent automation, secure digital infrastructure and innovative software solutions.
+              To become one of Africa&apos;s most trusted technology companies by empowering businesses through intelligent automation, secure digital infrastructure and innovative software solutions.
             </p>
           </motion.div>
           <motion.div
@@ -192,6 +185,30 @@ export default function AboutPage() {
             </p>
           </motion.div>
         </div>
+
+        {/* Our Goal */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="p-10 md:p-12 rounded-3xl bg-card border border-primary/30 relative overflow-hidden mb-24 shadow-xl"
+        >
+          <div className="absolute top-0 right-0 w-72 h-72 bg-primary/10 blur-[90px] pointer-events-none rounded-full" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 text-accent text-xs font-mono font-semibold uppercase tracking-widest mb-3">
+              <Target size={15} />
+              <span>Long-Term Impact</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-5">Our Goal</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-4xl">
+              CoreNovaTechnologiesLTD aspires to strengthen Nigeria&apos;s technology infrastructure across data storage, data security, cyber defense, and real-world software and web applications. The Company believes a country that secures and controls large-scale data earns deep investor confidence across technology, healthcare, and industrial development.
+            </p>
+            <blockquote className="p-6 rounded-2xl bg-primary/5 border-l-4 border-primary text-foreground font-heading text-lg md:text-xl font-medium italic">
+              &ldquo;A nation that protects its data earns the trust required for lasting investment and economic growth.&rdquo;
+            </blockquote>
+          </div>
+        </motion.div>
 
         <div className="text-center max-w-4xl mx-auto">
           <h3 className="text-2xl font-heading font-bold mb-10">Core Values</h3>
