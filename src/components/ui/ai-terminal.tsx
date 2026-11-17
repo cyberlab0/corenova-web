@@ -1,188 +1,139 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, X, Minus } from "lucide-react";
-
-interface Message {
-  type: "user" | "ai" | "system";
-  text: string;
-}
-
-const AI_RESPONSES: Record<string, string> = {
-  "help": "Available commands:\n• services — View our service offerings\n• about — Learn about Corenova Technology\n• contact — Get our contact information\n• ceo — Learn about our CEO\n• security — Our cybersecurity capabilities\n• ai — Our AI automation solutions\n• stack — Our technology stack\n• clear — Clear terminal",
-  "services": "🚀 Corenova Technology Services:\n\n  1. AI Automation — Intelligent workflow automation\n  2. Cybersecurity — Penetration testing & infrastructure protection\n  3. Software Development — Custom enterprise applications\n  4. Web Development — High-performance web apps\n  5. Cloud Solutions — Architecture, migration & management\n  6. Technology Consulting — Strategic tech advisory",
-  "about": "CoreNovaTechnologiesLTD is an officially registered technology company in Nigeria under the Corporate Affairs Commission (CAC) with registration number RC 9697390 as a Private Company Limited by Shares.\n\nFounder & CEO Michael Olowoselu currently holds 100% of the company's shares (full ownership).\n📍 Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria.",
-  "contact": "📧 Email: contact@corenovatechnology.com\n📞 Phone: +234 913 181 5101\n📍 Location: Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria\n🏢 Registration: CAC RC 9697390\n\n🌐 Website: corenovatechnology.com\n🐦 Twitter: @corenovaltd\n📸 Instagram: @corenovaltd",
-  "ceo": "👤 Michael Olowoselu\nFounder & Chief Executive Officer\n\nMichael is a visionary technology leader passionate about leveraging AI and cybersecurity to transform businesses across Africa and beyond.",
-  "security": "🛡️ Cybersecurity Services:\n\n• Penetration Testing & Vulnerability Assessments\n• Security Architecture Design\n• Incident Response Planning\n• Compliance & Regulatory Support (NDPR, GDPR)\n• 24/7 Security Monitoring\n• Security Awareness Training",
-  "ai": "🤖 AI & Automation Solutions:\n\n• Intelligent Process Automation (IPA)\n• Custom AI Model Development\n• Chatbot & Virtual Assistant Development\n• Predictive Analytics & Forecasting\n• Computer Vision Solutions\n• Natural Language Processing (NLP)",
-  "stack": "⚡ Our Technology Stack:\n\n  Frontend: Next.js, React, TypeScript, Tailwind CSS\n  Backend: Node.js, Python, Go\n  Cloud: AWS, Azure, Google Cloud, Cloudflare\n  AI/ML: TensorFlow, PyTorch, OpenAI\n  Security: Sentry, Cloudflare WAF, Turnstile\n  Database: PostgreSQL, MongoDB, Redis",
-};
-
-function getAIResponse(input: string): string {
-  const normalized = input.toLowerCase().trim();
-
-  // Check for exact matches first
-  if (AI_RESPONSES[normalized]) return AI_RESPONSES[normalized];
-
-  // Check for partial matches
-  for (const [key, value] of Object.entries(AI_RESPONSES)) {
-    if (normalized.includes(key)) return value;
-  }
-
-  // Greeting responses
-  if (normalized.match(/^(hi|hello|hey|yo|sup)/)) {
-    return "Hello! 👋 Welcome to Corenova Technology.\nI'm an AI assistant here to help you learn about our services.\n\nType 'help' to see available commands.";
-  }
-
-  if (normalized.match(/^(who are you|what are you)/)) {
-    return "I'm Corenova AI — a virtual assistant built to showcase our technology capabilities. I can tell you about our services, team, and tech stack.\n\nType 'help' to see what I can do.";
-  }
-
-  // Default response
-  return `Command not recognized: "${input}"\n\nType 'help' to see available commands.`;
-}
+import Link from "next/link";
+import {
+  MessageSquare,
+  X,
+  Calendar,
+  ShieldCheck,
+  Mail,
+  Phone,
+  ArrowUpRight,
+  Layers,
+} from "lucide-react";
 
 export function AiTerminal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { type: "system", text: "CORENOVA AI TERMINAL v1.0" },
-    { type: "system", text: "Type 'help' for available commands.\n" },
-  ]);
-  const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const userInput = input.trim();
-
-    if (userInput.toLowerCase() === "clear") {
-      setMessages([
-        { type: "system", text: "CORENOVA AI TERMINAL v1.0" },
-        { type: "system", text: "Type 'help' for available commands.\n" },
-      ]);
-      setInput("");
-      return;
-    }
-
-    // Add user message
-    setMessages((prev) => [...prev, { type: "user", text: userInput }]);
-    setInput("");
-    setIsTyping(true);
-
-    if (timerRef.current) clearTimeout(timerRef.current);
-
-    // Simulate AI typing delay safely
-    timerRef.current = setTimeout(() => {
-      const response = getAIResponse(userInput);
-      setMessages((prev) => [...prev, { type: "ai", text: response }]);
-      setIsTyping(false);
-    }, 600 + Math.random() * 800);
-  };
 
   return (
     <>
-      {/* Floating Toggle Button */}
+      {/* Subtle Executive Quick-Contact Toggle */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
-            initial={{ scale: 0, opacity: 0 }}
+            type="button"
+            initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
+            exit={{ scale: 0.9, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-shadow"
+            aria-label="Open CoreNova Quick Support"
+            className="fixed bottom-6 right-6 z-[90] inline-flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#0B1220] border border-primary/40 text-foreground shadow-2xl shadow-black/40 hover:border-primary transition-colors print:hidden"
           >
-            <Terminal size={22} />
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <MessageSquare size={16} className="text-primary" />
+            <span className="text-xs font-semibold tracking-wide hidden sm:inline">
+              Engineering Desk
+            </span>
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Terminal Window */}
+      {/* Executive Quick Support & Directory Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.9 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-6 right-6 z-[90] w-[90vw] max-w-md h-[60vh] max-h-[500px] rounded-2xl bg-[#0a0e17] border border-border/50 shadow-2xl shadow-black/40 overflow-hidden flex flex-col"
+            exit={{ opacity: 0, y: 24, scale: 0.96 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-6 right-6 z-[90] w-[90vw] max-w-sm rounded-2xl bg-[#0B1220] border border-border/80 shadow-2xl shadow-black/60 overflow-hidden print:hidden"
           >
-            {/* Title bar */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#0d1220] border-b border-border/30">
-              <div className="flex items-center gap-2">
-                <Terminal size={14} className="text-primary" />
-                <span className="text-xs font-mono text-muted-foreground">corenova-ai</span>
+            <div className="flex items-center justify-between px-5 py-4 bg-card/80 border-b border-border/50">
+              <div>
+                <p className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+                  CoreNovaTechnologiesLTD
+                </p>
+                <p className="text-[11px] text-muted-foreground mt-0.5">
+                  CAC RC 9697390 &bull; Direct Engineering Desk
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
-                  <Minus size={14} />
-                </button>
-                <button onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-red-400 transition-colors">
-                  <X size={14} />
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close support panel"
+                className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
+              >
+                <X size={16} />
+              </button>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 font-mono text-sm space-y-2" onClick={() => inputRef.current?.focus()}>
-              {messages.map((msg, idx) => (
-                <div key={idx}>
-                  {msg.type === "system" && (
-                    <div className="text-primary/70 text-xs whitespace-pre-wrap">{msg.text}</div>
-                  )}
-                  {msg.type === "user" && (
-                    <div className="text-foreground whitespace-pre-wrap">
-                      <span className="text-secondary">❯</span> {msg.text}
-                    </div>
-                  )}
-                  {msg.type === "ai" && (
-                    <div className="text-muted-foreground whitespace-pre-wrap pl-2 border-l-2 border-primary/20 ml-1">
-                      {msg.text}
-                    </div>
-                  )}
+            <div className="p-4 space-y-2">
+              <Link
+                href="/#contact"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between p-3 rounded-xl bg-primary/10 border border-primary/30 hover:bg-primary/15 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <Calendar size={16} className="text-primary shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Book a Discovery Call</p>
+                    <p className="text-[11px] text-muted-foreground">24-hour engineering response</p>
+                  </div>
                 </div>
-              ))}
+                <ArrowUpRight size={15} className="text-primary" />
+              </Link>
 
-              {isTyping && (
-                <div className="text-primary/60 text-xs animate-pulse pl-2">
-                  ● ● ● thinking...
+              <Link
+                href="/trust"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-border/50 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <ShieldCheck size={16} className="text-emerald-400 shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Trust &amp; CAC Credentials</p>
+                    <p className="text-[11px] text-muted-foreground">RC 9697390 &amp; security controls</p>
+                  </div>
                 </div>
-              )}
+                <ArrowUpRight size={15} className="text-muted-foreground" />
+              </Link>
 
-              <div ref={bottomRef} />
-            </div>
+              <Link
+                href="/portfolio"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-border/50 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <Layers size={16} className="text-secondary shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Explore Products</p>
+                    <p className="text-[11px] text-muted-foreground">SentraLog, VELA &amp; PROVELT</p>
+                  </div>
+                </div>
+                <ArrowUpRight size={15} className="text-muted-foreground" />
+              </Link>
 
-            {/* Input */}
-            <form onSubmit={handleSubmit} className="px-4 py-3 border-t border-border/30 bg-[#0d1220]">
-              <div className="flex items-center gap-2 font-mono text-sm">
-                <span className="text-secondary shrink-0">❯</span>
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Type a command..."
-                  autoFocus
-                  className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground/40 focus:outline-none"
-                />
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-border/50">
+                <a
+                  href="https://wa.me/2349131815101"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold hover:bg-emerald-500/20 transition-colors"
+                >
+                  <Phone size={13} />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="mailto:contact@corenovatechnology.com"
+                  className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/[0.04] border border-border/60 text-foreground text-xs font-semibold hover:border-primary/40 transition-colors"
+                >
+                  <Mail size={13} />
+                  <span>Email Us</span>
+                </a>
               </div>
-            </form>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

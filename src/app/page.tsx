@@ -8,14 +8,13 @@ import { ProcessSection } from "@/components/home/process-section";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { TechStackSection } from "@/components/home/tech-stack-section";
 import { FounderSummarySection } from "@/components/home/founder-summary-section";
+import { ScopeEstimatorSection } from "@/components/home/scope-estimator";
 import { FaqSection } from "@/components/home/faq-section";
 import { ContactSection } from "@/components/home/contact-section";
-import { IntroAnimation } from "@/components/ui/intro-animation";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <IntroAnimation />
       <HeroSection />
       <StatsSection />
       <TechStackMarquee />
@@ -26,10 +25,9 @@ export default function Home() {
       <IndustriesSection />
       <TechStackSection />
       <FounderSummarySection />
+      <ScopeEstimatorSection />
       <FaqSection />
       <ContactSection />
     </main>
   );
 }
-
-

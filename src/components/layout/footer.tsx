@@ -40,6 +40,8 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-lg mb-6">Company</h3>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li><Link href="/#services" className="hover:text-foreground transition-colors">Services</Link></li>
+              <li><Link href="/portfolio" className="hover:text-foreground transition-colors">Portfolio</Link></li>
+              <li><Link href="/trust" className="hover:text-foreground transition-colors">Trust Center</Link></li>
               <li><Link href="/about" className="hover:text-foreground transition-colors">About CoreNova</Link></li>
               <li><Link href="/#contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
             </ul>
