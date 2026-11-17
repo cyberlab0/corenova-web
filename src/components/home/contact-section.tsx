@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { MapPin, Phone, Mail, MessageCircle, CheckCircle } from "lucide-react";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { LocationMapCard } from "@/components/ui/location-map-card";
 
 export function ContactSection() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -50,7 +51,7 @@ export function ContactSection() {
                 { icon: <Mail />, title: "Email Us", detail: "contact@corenovatechnology.com" },
                 { icon: <Phone />, title: "Call Us", detail: "+234 913 181 5101" },
                 { icon: <MessageCircle />, title: "WhatsApp", detail: "+234 913 181 5101" },
-                { icon: <MapPin />, title: "Visit Us", detail: "Corenova HQ, Lagos, Nigeria" },
+                { icon: <MapPin />, title: "Visit Us (CAC RC 9697390)", detail: "Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria" },
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -134,6 +135,25 @@ export function ContactSection() {
               </form>
             )}
           </motion.div>
+        </div>
+
+        {/* Interactive Company Location & Google Maps Locator */}
+        <div className="mt-20 pt-16 border-t border-border/50">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest">
+                <MapPin size={13} />
+                Interactive Office Locator
+              </span>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold mt-3">
+                Find CoreNovaTechnologiesLTD on Google Maps
+              </h3>
+            </div>
+            <p className="text-sm text-muted-foreground max-w-md">
+              Use the interactive map below to preview our location in Osogbo, switch to satellite view, copy our address, or launch instant GPS directions.
+            </p>
+          </div>
+          <LocationMapCard showBookAppointment={false} />
         </div>
       </div>
     </section>

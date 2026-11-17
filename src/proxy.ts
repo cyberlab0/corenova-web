@@ -35,13 +35,13 @@ export function proxy(request: NextRequest) {
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://browser.sentry-cdn.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://www.google-analytics.com;
+    img-src 'self' blob: data: https://www.google-analytics.com https://maps.gstatic.com https://*.googleapis.com;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    frame-src 'self' https://challenges.cloudflare.com;
+    frame-src 'self' https://challenges.cloudflare.com https://maps.google.com https://www.google.com https://www.openstreetmap.org;
     connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.sentry.io https://*.ingest.sentry.io https://*.ingest.de.sentry.io;
     worker-src 'self' blob:;
     upgrade-insecure-requests;

@@ -11,6 +11,12 @@ export function Footer() {
             <p className="mt-6 text-muted-foreground max-w-sm">
               Helping businesses transform through Artificial Intelligence, Automation, Cybersecurity, Modern Software Development and Cloud Solutions.
             </p>
+            <p className="mt-4 text-xs text-muted-foreground font-mono">
+              CoreNovaTechnologiesLTD &bull; CAC Reg. No: <span className="text-primary font-semibold">RC 9697390</span> (Private Company Limited by Shares)
+            </p>
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria
+            </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <a href="https://x.com/corenovaltd?s=11" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
                 <FaTwitter size={20} />
@@ -34,7 +40,7 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-lg mb-6">Company</h3>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li><Link href="/#services" className="hover:text-foreground transition-colors">Services</Link></li>
-              <li><Link href="/about" className="hover:text-foreground transition-colors">About the CEO</Link></li>
+              <li><Link href="/about" className="hover:text-foreground transition-colors">About CoreNova</Link></li>
               <li><Link href="/#contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
             </ul>
           </div>
@@ -51,7 +57,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Corenova Technologies Ltd. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CoreNovaTechnologiesLTD (RC 9697390). All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/legal/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
             <Link href="/legal/ndpr" className="hover:text-foreground transition-colors">NDPR Notice</Link>

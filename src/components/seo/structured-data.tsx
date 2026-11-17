@@ -2,8 +2,10 @@ export function StructuredData() {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Corenova Technology Ltd",
+    "name": "CoreNovaTechnologiesLTD",
+    "legalName": "CoreNovaTechnologiesLTD",
     "alternateName": "CORENOVA TECHNOLOGY LTD",
+    "identifier": "RC 9697390",
     "url": "https://corenovatechnology.com",
     "logo": "https://corenovatechnology.com/corenova-icon.svg",
     "foundingDate": "2026",
@@ -15,7 +17,7 @@ export function StructuredData() {
         "url": "https://corenovatechnology.com/about",
       }
     ],
-    "description": "Helping businesses transform through Artificial Intelligence, Automation, Cybersecurity, Modern Software Development and Cloud Solutions.",
+    "description": "CoreNovaTechnologiesLTD (CAC RC 9697390), a Private Company Limited by Shares, helping businesses transform through Artificial Intelligence, Automation, Cybersecurity, Modern Software Development and Cloud Solutions.",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+2349131815101",
@@ -25,7 +27,9 @@ export function StructuredData() {
     },
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Lagos",
+      "streetAddress": "Kobo Street, Along Ikirun Road",
+      "addressLocality": "Osogbo",
+      "addressRegion": "Osun",
       "addressCountry": "NG"
     },
     "sameAs": [
@@ -39,24 +43,34 @@ export function StructuredData() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Corenova Technology Ltd",
+    "name": "CoreNovaTechnologiesLTD",
+    "legalName": "CoreNovaTechnologiesLTD",
+    "identifier": "RC 9697390",
     "image": "https://corenovatechnology.com/corenova-icon.svg",
     "@id": "https://corenovatechnology.com",
     "url": "https://corenovatechnology.com",
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=7.8304235,4.5981209&query_place_id=ChIJY0jM174NmowRb0xaqaMQ_LU",
     "telephone": "+2349131815101",
     "email": "contact@corenovatechnology.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Lagos",
+      "streetAddress": "Kobo Street, Along Ikirun Road",
+      "addressLocality": "Osogbo",
+      "addressRegion": "Osun",
       "addressCountry": "NG"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 7.8304235,
+      "longitude": 4.5981209
     },
     "areaServed": {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 6.5244,
-        "longitude": 3.3792
+        "latitude": 7.8304235,
+        "longitude": 4.5981209
       },
       "geoRadius": "50000"
     },

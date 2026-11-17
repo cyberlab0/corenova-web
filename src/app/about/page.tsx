@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ShieldCheck, Building2, FileCheck2, UserCheck, Landmark, MapPin } from "lucide-react";
+import { LocationMapCard } from "@/components/ui/location-map-card";
 
 const timelineEvents = [
   { year: "Early Years", title: "Born in Calabar", desc: "Discovered a passion for computers and technology during secondary school." },
@@ -24,9 +25,13 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-semibold uppercase tracking-widest mb-6">
+            <Building2 size={14} />
+            About CoreNovaTechnologiesLTD &bull; CAC RC 9697390
+          </span>
           <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6">
-            The Vision <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Behind Corenova</span>
+            Engineering The Future <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">With CoreNova</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Technology should solve real business problems—not create more complexity.
@@ -43,43 +48,30 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* CEO Card Section */}
+      {/* About The Company Section */}
       <section className="container mx-auto px-6 py-24 border-t border-border/50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Founder portrait with right-click & drag protection */}
-            <div 
-              className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl select-none"
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              style={{ WebkitTouchCallout: "none", WebkitUserSelect: "none", userSelect: "none" }}
-            >
+            {/* Company Visual */}
+            <div className="aspect-[4/5] rounded-3xl bg-card border border-border/50 overflow-hidden relative group shadow-2xl">
               <img 
-                src="/michael-olowoselu.jpg" 
-                alt="Michael Olowoselu - Founder & CEO" 
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700 pointer-events-none select-none"
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
+                src="/corenova-company.jpg" 
+                alt="CoreNovaTechnologiesLTD - AI Automation, Cybersecurity & Software Engineering" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
               />
               {/* Subtle edge vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-10" />
-              {/* Transparent protection shield blocking right-click / drag */}
-              <div 
-                className="absolute inset-0 z-20" 
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
-              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none z-10" />
             </div>
             
             <div className="mt-6 md:absolute md:-bottom-6 md:-right-6 bg-card/95 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-primary/30 shadow-2xl backdrop-blur-2xl z-30">
-              <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">Michael Olowoselu</h3>
-              <p className="text-primary font-medium text-sm md:text-base">Founder & Chief Executive Officer</p>
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">CoreNovaTechnologiesLTD</h3>
+              <p className="text-primary font-medium text-sm md:text-base">Founded by Michael Olowoselu &bull; RC 9697390</p>
             </div>
           </motion.div>
 
@@ -89,23 +81,30 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-heading font-bold mb-6">About The Founder</h2>
-            <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
-              Michael Olowoselu was born in Calabar, Cross River State, Nigeria. His fascination with technology began during his secondary school years, where curiosity about computers gradually became a lifelong passion.
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold uppercase tracking-widest mb-4">
+              Who We Are
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">About CoreNovaTechnologiesLTD</h2>
+            <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+              <strong className="text-foreground">CoreNovaTechnologiesLTD</strong> is a next-generation technology company founded by{" "}
+              <strong className="text-foreground">Michael Olowoselu</strong>, dedicated to transforming how modern businesses operate, scale, and defend their digital assets. Registered under the Corporate Affairs Commission (CAC) as a Private Company Limited by Shares (<strong className="text-primary font-mono">RC 9697390</strong>), we engineer high-impact Artificial Intelligence systems, resilient cybersecurity platforms, and scalable enterprise software.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
-              Through countless hours of online learning, practical projects, continuous research and real-world experimentation, he built expertise in Artificial Intelligence Automation and modern business automation systems.
+            <p className="text-muted-foreground leading-relaxed mb-6 text-base">
+              We partner with startups, growing enterprises, and forward-thinking organizations to eliminate operational bottlenecks through intelligent workflow automation, proactive threat detection, and cloud-native web and mobile applications built with security at the core.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8 text-base">
+              The spirit of CoreNova is rooted in the journey of our founder, <strong className="text-foreground">Michael Olowoselu</strong>, who was born in Calabar, Cross River State, Nigeria. What began as an early fascination with computers during secondary school—followed by his move to Osun State and years of relentless self-education, practical engineering, and research in AI Automation and Cybersecurity—grew into a registered technology enterprise committed to delivering world-class digital transformation from Osogbo to clients worldwide.
             </p>
             
             <div className="bg-card/50 p-6 rounded-2xl border border-border">
-              <h4 className="font-heading font-semibold text-foreground mb-4">Specializations</h4>
+              <h4 className="font-heading font-semibold text-foreground mb-4">Core Company Capabilities</h4>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> AI Automation</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary" /> Cybersecurity Professional in Training</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Security Operations (Aspiring SOC)</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> Custom Software Development</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary" /> Business Process Automation</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Cloud Solutions & Web Apps</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> AI &amp; Workflow Automation</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary" /> Cybersecurity &amp; SIEM Engineering</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Security Operations &amp; Audits</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary" /> Custom Enterprise Software</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary" /> Business Process Digitization</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent" /> Cloud Solutions &amp; Web/Mobile Apps</li>
               </ul>
             </div>
           </motion.div>
@@ -126,7 +125,7 @@ export default function AboutPage() {
             <p className="text-3xl md:text-5xl font-heading font-medium leading-tight text-foreground mb-10">
               "Success isn't determined by where you started. It's determined by how relentlessly you continue learning."
             </p>
-            <p className="text-xl font-medium text-primary">— Michael Olowoselu</p>
+            <p className="text-xl font-medium text-primary">&mdash; Michael Olowoselu, Founder &amp; CEO, CoreNovaTechnologiesLTD</p>
           </motion.div>
         </div>
       </section>
@@ -211,6 +210,135 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Corporate Registration & Ownership Section */}
+      <section className="container mx-auto px-6 py-24 border-t border-border/50">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="rounded-3xl bg-card border border-primary/30 p-8 md:p-14 relative overflow-hidden shadow-2xl"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[110px] pointer-events-none rounded-full" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 blur-[100px] pointer-events-none rounded-full" />
+
+          <div className="relative z-10">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold uppercase tracking-widest">
+                  <ShieldCheck size={14} />
+                  Officially Registered Corporate Entity
+                </span>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mt-4">
+                  Corporate Registration &amp;{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                    Ownership Structure
+                  </span>
+                </h2>
+              </div>
+
+              <div className="px-5 py-3 rounded-2xl bg-background/90 border border-primary/30 text-right">
+                <p className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
+                  CAC Registration Number
+                </p>
+                <p className="text-2xl font-mono font-bold text-primary tracking-wider">
+                  RC 9697390
+                </p>
+              </div>
+            </div>
+
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-4xl mb-10">
+              <strong className="text-foreground">CoreNovaTechnologiesLTD</strong> is duly incorporated and registered under the{" "}
+              <strong className="text-foreground">Corporate Affairs Commission (CAC)</strong> of the Federal Republic of Nigeria with registration number{" "}
+              <strong className="text-primary font-mono">RC 9697390</strong> as a{" "}
+              <strong className="text-foreground">Private Company Limited by Shares</strong>. The Founder and Chief Executive Officer,{" "}
+              <strong className="text-foreground">Michael Olowoselu</strong>, currently holds{" "}
+              <strong className="text-foreground">all issued shares (100% equity)</strong> of the company, maintaining full ownership, strategic independence, and direct accountability to every client.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="p-5 rounded-2xl bg-background/80 border border-border/60 space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <Building2 size={20} />
+                </div>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  Registered Name
+                </p>
+                <p className="text-base font-heading font-bold text-foreground">
+                  CoreNovaTechnologiesLTD
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Legally incorporated technology enterprise
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-background/80 border border-border/60 space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                  <FileCheck2 size={20} />
+                </div>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  Registration Authority
+                </p>
+                <p className="text-base font-heading font-bold text-foreground">
+                  CAC &bull; RC 9697390
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Corporate Affairs Commission, Nigeria
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-background/80 border border-border/60 space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+                  <Landmark size={20} />
+                </div>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  Company Classification
+                </p>
+                <p className="text-base font-heading font-bold text-foreground">
+                  Private Company Limited by Shares
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Incorporated corporate legal status
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-background/80 border border-border/60 space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                  <UserCheck size={20} />
+                </div>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  Shareholding &amp; Ownership
+                </p>
+                <p className="text-base font-heading font-bold text-foreground">
+                  100% Founder-Owned
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Michael Olowoselu holds all shares &amp; full ownership
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Office Location & Interactive Map Section */}
+      <section className="container mx-auto px-6 pt-12 pb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest mb-4">
+            <MapPin size={14} />
+            Locate Us Easily
+          </span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            Visit Our Registered Office
+          </h2>
+          <p className="text-muted-foreground text-base">
+            Find CoreNovaTechnologiesLTD at Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria, or get instant turn-by-turn directions via Google Maps.
+          </p>
+        </div>
+
+        <LocationMapCard showBookAppointment={true} />
       </section>
     </div>
   );

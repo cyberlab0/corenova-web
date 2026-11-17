@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   description: "We build intelligent software, automate business operations, secure digital infrastructure and develop scalable web applications for businesses worldwide.",
   keywords: [
     "AI Automation", "Cybersecurity", "Software Development", "Web Development",
-    "Cloud Solutions", "Technology Consulting", "Nigeria", "Lagos",
-    "Artificial Intelligence", "Corenova", "Corenova Technology",
+    "Cloud Solutions", "Technology Consulting", "Nigeria", "Osogbo", "Osun State",
+    "Artificial Intelligence", "Corenova", "Corenova Technology", "CoreNovaTechnologiesLTD", "RC 9697390",
   ],
   authors: [{ name: "Michael Olowoselu", url: "https://corenovatechnology.com/about" }],
   creator: "Corenova Technology Ltd",
