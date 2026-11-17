@@ -38,7 +38,7 @@ export function IndustriesSection() {
             </span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Domain-specific software engineering and security compliance tailored to your sector's regulatory standards.
+            Domain-specific software engineering and security compliance tailored to your sector&apos;s regulatory standards.
           </p>
         </div>
 

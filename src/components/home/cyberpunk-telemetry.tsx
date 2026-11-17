@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Shield, Activity, Cpu, Play, CheckCircle, Flame, Layers } from "lucide-react";
+import { Terminal, Activity, Play, Flame, Layers } from "lucide-react";
 import { VelaModal } from "@/components/ui/vela-modal";
 
 export function CyberpunkTelemetry() {

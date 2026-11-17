@@ -9,7 +9,7 @@ const caseStudies = [
     icon: <Cpu className="text-cyan-400" size={20} />,
     title: "Meet VELA: Ultimate AI Financial Powerhouse",
     clientType: "Corenova AI Systems Product",
-    link: "https://portfolio-v0rz.onrender.com/#contact",
+    link: "/portfolio",
     metrics: [
       { label: "Bank Connect", value: "15,000+" },
       { label: "Build Stage", value: "80%" },

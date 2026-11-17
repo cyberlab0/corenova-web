@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, X, EyeOff, ShieldAlert, CheckCircle2, Zap, Terminal, Activity } from "lucide-react";
+import { Lock, X, EyeOff, ShieldAlert, CheckCircle2, Activity } from "lucide-react";
 
 interface ProveltModalProps {
   isOpen: boolean;

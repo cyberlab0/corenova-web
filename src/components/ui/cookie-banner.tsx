@@ -33,7 +33,7 @@ export function CookieBanner() {
               <h3 className="font-heading font-semibold text-lg mb-2">We value your privacy</h3>
               <p className="text-sm text-muted-foreground">
                 We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
-                By clicking "Accept All", you consent to our use of cookies as detailed in our{" "}
+                By clicking &ldquo;Accept All&rdquo;, you consent to our use of cookies as detailed in our{" "}
                 <Link href="/legal/cookies" className="text-primary hover:underline transition-all">
                   Cookie Policy
                 </Link>.

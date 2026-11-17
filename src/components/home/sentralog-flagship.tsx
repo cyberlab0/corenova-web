@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, ShieldAlert, Cpu, Activity, Play, Terminal, Layers } from "lucide-react";
+import { Play, Terminal, Layers } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 export function SentralogFlagshipSection() {

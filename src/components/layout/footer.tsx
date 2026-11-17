@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AnimatedLogo } from "@/components/ui/animated-logo";
-import { FaGithub, FaTwitter, FaLinkedin, FaFacebook, FaTiktok, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaFacebook, FaTiktok, FaInstagram } from "react-icons/fa";
 export function Footer() {
   return (
     <footer className="border-t border-border/50 bg-background pt-20 pb-10">
@@ -18,20 +18,20 @@ export function Footer() {
               Kobo Street, Along Ikirun Road, Osogbo, Osun State, Nigeria
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
-              <a href="https://x.com/corenovaltd?s=11" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
+              <a href="https://x.com/corenovaltd?s=11" target="_blank" rel="noopener noreferrer" aria-label="CoreNova on X (Twitter)" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
                 <FaTwitter size={20} />
               </a>
-              <a href="https://www.instagram.com/corenovaltd?igsh=bXoxb3ZrNGc5Zjk0&utm_source=qr" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
+              <a href="https://www.instagram.com/corenovaltd?igsh=bXoxb3ZrNGc5Zjk0&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="CoreNova on Instagram" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
                 <FaInstagram size={20} />
               </a>
-              <a href="https://www.facebook.com/share/1EkN96dPri/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
+              <a href="https://www.facebook.com/share/1EkN96dPri/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="CoreNova on Facebook" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
                 <FaFacebook size={20} />
               </a>
-              <a href="https://www.tiktok.com/@corenovaltd?_r=1&_t=ZS-98HCZmLufTQ" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
+              <a href="https://www.tiktok.com/@corenovaltd?_r=1&_t=ZS-98HCZmLufTQ" target="_blank" rel="noopener noreferrer" aria-label="CoreNova on TikTok" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
                 <FaTiktok size={20} />
               </a>
-              <a href="#" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
-                <FaLinkedin size={20} />
+              <a href="https://github.com/cyberlab0" target="_blank" rel="noopener noreferrer" aria-label="CoreNova on GitHub" className="p-2 rounded-full bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors">
+                <FaGithub size={20} />
               </a>
             </div>
           </div>

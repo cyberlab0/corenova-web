@@ -1,7 +1,7 @@
 import { blogPosts, getPostBySlug } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Tag, User, CheckCircle2, Share2, HelpCircle, ArrowRight, Quote } from "lucide-react";
+import { Calendar, Clock, Tag, User, CheckCircle2, Share2, HelpCircle, ArrowRight, Quote } from "lucide-react";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -82,6 +82,20 @@ export default async function BlogPostPage(props: Props) {
     })),
   } : null;
 
+  const renderInlineBold = (text: string): React.ReactNode[] => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, idx) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={idx} className="text-foreground">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return <span key={idx}>{part}</span>;
+    });
+  };
+
   const renderContent = (content: string) => {
     const lines = content.split("\n");
     const elements: React.ReactNode[] = [];
@@ -93,7 +107,7 @@ export default async function BlogPostPage(props: Props) {
         elements.push(
           <ul key={key++} className="list-disc list-inside space-y-2 text-muted-foreground mb-6 pl-4">
             {currentList.map((item, idx) => (
-              <li key={idx} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
+              <li key={idx}>{renderInlineBold(item)}</li>
             ))}
           </ul>
         );
@@ -130,10 +144,9 @@ export default async function BlogPostPage(props: Props) {
           <p
             key={key++}
             className="text-muted-foreground leading-relaxed mb-4 text-base"
-            dangerouslySetInnerHTML={{
-              __html: trimmed.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>'),
-            }}
-          />
+          >
+            {renderInlineBold(trimmed)}
+          </p>
         );
       }
     });
@@ -150,13 +163,13 @@ export default async function BlogPostPage(props: Props) {
       <Script
         id="article-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }}
       />
       {faqSchema && (
         <Script
           id="faq-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
         />
       )}
 

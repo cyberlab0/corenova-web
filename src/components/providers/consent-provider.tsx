@@ -1,8 +1,43 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 
 type Consent = "granted" | "denied" | "unknown";
+
+const STORAGE_KEY = "analytics-consent";
+const listeners = new Set<() => void>();
+
+function subscribe(callback: () => void) {
+  listeners.add(callback);
+  const handleStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY) callback();
+  };
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", handleStorage);
+  }
+  return () => {
+    listeners.delete(callback);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", handleStorage);
+    }
+  };
+}
+
+function getClientSnapshot(): Consent {
+  try {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "granted" || saved === "denied") return saved;
+    }
+  } catch {
+    // Gracefully handle restricted storage / private browsing mode
+  }
+  return "unknown";
+}
+
+function getServerSnapshot(): Consent {
+  return "unknown";
+}
 
 const ConsentContext = createContext<{
   consent: Consent;
@@ -14,31 +49,17 @@ export function useConsent() {
 }
 
 export function ConsentProvider({ children }: { children: React.ReactNode }) {
-  // Start as 'unknown' so nothing analytics-related runs on the first paint
-  const [consent, setConsentState] = useState<Consent>("unknown");
-
-  // Read the saved choice once on mount safely
-  useEffect(() => {
-    try {
-      if (typeof window !== "undefined") {
-        const saved = localStorage.getItem("analytics-consent");
-        if (saved === "granted" || saved === "denied") setConsentState(saved);
-      }
-    } catch {
-      // Gracefully handle restricted storage / private browsing mode
-    }
-  }, []);
+  const consent = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
 
   const setConsent = (c: Consent) => {
     try {
       if (typeof window !== "undefined") {
-        localStorage.setItem("analytics-consent", c);
+        localStorage.setItem(STORAGE_KEY, c);
       }
     } catch {
       // Gracefully handle storage write errors
     }
-    setConsentState(c);
-    // Also tell GA about the change for this page load (Consent Mode)
+    listeners.forEach((listener) => listener());
     if (typeof window !== "undefined") {
       window.gtag?.("consent", "update", {
         analytics_storage: c === "granted" ? "granted" : "denied",

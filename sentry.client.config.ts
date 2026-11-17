@@ -4,10 +4,7 @@ Sentry.init({
   dsn: "https://c8ba8b7b12903b5ef7dbf5e62aafb3ee@o4511813428314112.ingest.de.sentry.io/4511813456822352",
 
   // Performance Monitoring
-  tracesSampleRate: 1.0,
-
-  // Set sampling rate for profiling - relative to tracesSampleRate
-  profilesSampleRate: 1.0,
+  tracesSampleRate: 0.2,
 
   // Capture Replay Sessions
   replaysSessionSampleRate: 0.1,

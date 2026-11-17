@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, X, Cpu, CheckCircle2, ShieldCheck, Zap, Activity } from "lucide-react";
+import { Terminal, X, CheckCircle2, ShieldCheck, Activity } from "lucide-react";
 
 interface VelaModalProps {
   isOpen: boolean;

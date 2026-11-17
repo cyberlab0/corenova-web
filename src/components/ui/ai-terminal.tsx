@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, X, Minus, Maximize2 } from "lucide-react";
+import { Terminal, X, Minus } from "lucide-react";
 
 interface Message {
   type: "user" | "ai" | "system";

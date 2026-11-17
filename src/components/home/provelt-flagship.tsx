@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock, ShieldAlert, Activity, EyeOff, Terminal, Zap, ArrowRight } from "lucide-react";
+import { Lock, ShieldAlert, Activity, EyeOff, ArrowRight } from "lucide-react";
 
 interface ProveltFlagshipProps {
   onOpenModal: () => void;

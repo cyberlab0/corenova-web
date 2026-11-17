@@ -1,22 +1,34 @@
 "use client";
 
-import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import { useRef, useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+
+// Deterministic PRNG so particle coordinates are pure and hydration-safe
+function mulberry32(seed: number) {
+  let a = seed;
+  return function () {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 function Particles() {
   const count = 1000;
   const mesh = useRef<THREE.InstancedMesh>(null);
-  
+
   const particles = useMemo(() => {
+    const rand = mulberry32(9697390);
     const temp = [];
     for (let i = 0; i < count; i++) {
-      const time = Math.random() * 100;
-      const factor = Math.random() * 100 + 20;
-      const speed = Math.random() * 0.01 + 0.005;
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      const z = Math.random() * 200 - 100;
+      const time = rand() * 100;
+      const factor = rand() * 100 + 20;
+      const speed = rand() * 0.01 + 0.005;
+      const x = rand() * 200 - 100;
+      const y = rand() * 200 - 100;
+      const z = rand() * 200 - 100;
       temp.push({ time, factor, speed, x, y, z });
     }
     return temp;
@@ -27,10 +39,10 @@ function Particles() {
   useFrame(() => {
     if (!mesh.current) return;
     particles.forEach((particle, i) => {
-      let { factor, speed, x, y, z } = particle;
-      
+      const { factor, speed, x, y, z } = particle;
+
       const t = (particle.time += speed);
-      
+
       dummy.position.set(
         x + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
         y + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,

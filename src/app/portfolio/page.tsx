@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, CheckCircle2, ArrowRight, ShieldCheck, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
+import { ExternalLink, CheckCircle2, ArrowRight, Zap, Bot, Globe, Smartphone, Lock, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { CyberpunkTelemetry } from "@/components/home/cyberpunk-telemetry";
@@ -42,7 +42,6 @@ const projects: PortfolioProject[] = [
     category: "AI Systems",
     isBuilding: true,
     progress: 80,
-    liveLink: "https://portfolio-v0rz.onrender.com/#contact",
     challenge: "Managing personal wealth, budgeting, and global bank accounts across multiple apps is fragmented, slow, and lacks intelligent insights.",
     solution: "AI system that connects and automates digital life. VELA aggregates global banking telemetry, analyzes spending habits with LLMs, and sends real-time SMS alerts.",
     tech: ["Python AI", "OpenAI Vision", "FastAPI", "React 19", "256-bit Encryption", "Twilio SMS"],
@@ -348,7 +347,7 @@ export default function PortfolioPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] pointer-events-none rounded-full" />
           <h2 className="text-3xl font-heading font-bold mb-4 relative z-10">Ready to build your next AI or Security product?</h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8 relative z-10">
-            Let's discuss how we can build a secure, high-performance solution tailored to your exact business requirements.
+            Let&apos;s discuss how we can build a secure, high-performance solution tailored to your exact business requirements.
           </p>
           <Link
             href="/#contact"

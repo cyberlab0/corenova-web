@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const featured = blogPosts.filter((p) => p.featured);
-  const rest = blogPosts.filter((p) => !p.featured);
 
   return (
     <main className="pt-32 pb-24">

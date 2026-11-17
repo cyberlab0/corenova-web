@@ -116,7 +116,7 @@ export default function AboutPage() {
             className="max-w-4xl mx-auto"
           >
             <p className="text-3xl md:text-5xl font-heading font-medium leading-tight text-foreground mb-10">
-              "Success isn't determined by where you started. It's determined by how relentlessly you continue learning."
+              &ldquo;Success isn&apos;t determined by where you started. It&apos;s determined by how relentlessly you continue learning.&rdquo;
             </p>
             <p className="text-xl font-medium text-primary">&mdash; Michael Olowoselu, Founder &amp; CEO, CoreNovaTechnologiesLTD</p>
           </motion.div>
